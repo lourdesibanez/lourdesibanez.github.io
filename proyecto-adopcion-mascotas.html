@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Adopción de Mascotas · Lourdes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="nav-brand"><span class="plate">LP</span> Lourdes · Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="wrap">
+    <a class="back-link" href="proyectos.html">← Volver a proyectos</a>
+    <p class="kicker">Proyecto propio · MVP</p>
+    <h1>Sistema de Adopción de Mascotas</h1>
+    <p>Plataforma para conectar refugios y personas que buscan adoptar, con foco en publicar, buscar y filtrar mascotas disponibles.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="detail-hero-img">
+    <img src="assets/adopcion-home.png" alt="Home del sitio Suramigo con el mensaje 'Adopta, no compres'">
+  </div>
+</div>
+
+<div class="wrap detail-body">
+  <div>
+    <h2>El problema</h2>
+    <p>Muchos refugios y personas particulares publican mascotas en adopción de forma dispersa, sin un lugar centralizado donde alguien interesado pueda buscar, filtrar y contactar de forma simple. El objetivo fue construir un MVP del proceso de adopción, de punta a punta, priorizando lo esencial para llegar a un resultado tangible y usable rápido.</p>
+
+    <h2>Qué construimos</h2>
+    <p>Diseñamos el prototipo completo en Figma y después lo llevamos a código: un sitio donde cualquiera puede publicar una mascota en adopción, buscarlas por especie, provincia, tamaño, estado y sexo, y avanzar en el proceso de adopción desde la ficha de cada animal.</p>
+    <ul>
+      <li>Publicación y edición de fichas de mascotas en adopción</li>
+      <li>Buscador y filtros por especie, provincia, tamaño, estado y sexo</li>
+      <li>Fichas con biografía, edad, peso y temperamento de cada mascota</li>
+      <li>Flujo de "Adopta" y guardado de favoritos</li>
+    </ul>
+
+    <h2>Galería</h2>
+    <div class="gallery">
+      <figure>
+        <img src="assets/adopcion-filtro.png" alt="Pantalla de filtros: especie, provincia, tamaño, estado y sexo">
+        <figcaption>Filtro de búsqueda de mascotas</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/adopcion-listado.png" alt="Listado de fichas de mascotas en adopción en formato carrusel">
+        <figcaption>Listado de mascotas en adopción</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/adopcion-footer.png" alt="Footer del sitio Suramigo con enlaces a dueños, refugios y recursos">
+        <figcaption>Footer y navegación secundaria</figcaption>
+      </figure>
+    </div>
+
+    <span class="note">✎ Sumá acá tu rol específico dentro del equipo (qué parte construiste vos) para que quede más completo</span>
+  </div>
+
+  <aside class="detail-sidebar">
+    <div class="plate-card">
+      <h3>Detalle del proyecto</h3>
+      <div class="plate-row"><span>Tipo</span><span>MVP</span></div>
+      <div class="plate-row"><span>Diseño</span><span>Figma</span></div>
+      <div class="plate-row"><span>Equipo</span><span>No Country</span></div>
+      <div class="plate-row"><span>Stack</span><span>PHP</span></div>
+      <a class="btn btn-primary" href="https://github.com/No-Country/c17-119-m-php" target="_blank" rel="noopener">Ver código en GitHub</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Lourdes</span>
+    <span>Hecho con HTML, CSS y JS — sin frameworks</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyectos · Lourdes</title>
+<meta name="description" content="Proyectos de Lourdes — backend, bases de datos y UX/UI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="nav-brand"><span class="plate">LP</span> Lourdes · Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="wrap">
+    <p class="kicker">Historial completo</p>
+    <h1>Proyectos</h1>
+    <p>Backend, bases de datos y UX/UI: así fue el trabajo, entrá a cada uno para ver el detalle completo.</p>
+  </div>
+</header>
+
+<section style="padding: 60px 0;">
+  <div class="wrap">
+    <div class="card-grid">
+
+      <a class="project-card" href="proyecto-adopcion-mascotas.html">
+        <div class="thumb">
+          <span class="tag">Proyecto propio</span>
+          <img src="assets/adopcion-home.png" alt="Pantalla de inicio del sitio Suramigo, de adopción de mascotas">
+        </div>
+        <div class="card-body">
+          <h3>Sistema de Adopción de Mascotas</h3>
+          <p>MVP del proceso de adopción de mascotas de punta a punta: prototipo en Figma y desarrollo funcional.</p>
+          <div class="card-meta">
+            <span class="chip">Figma</span>
+            <span class="chip teal">MVP</span>
+          </div>
+          <span class="card-cta">Ver proyecto →</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="proyecto-control-ingreso.html">
+        <div class="thumb">
+          <span class="tag">Backend · EPS</span>
+          <img src="assets/thumb-control-ingreso.svg" alt="Ilustración de una barrera de estacionamiento">
+        </div>
+        <div class="card-body">
+          <h3>Migración de Control de Ingreso</h3>
+          <p>De CodeIgniter (V1) a una API REST en Laravel (V2): endpoints, migraciones y documentación Swagger.</p>
+          <div class="card-meta">
+            <span class="chip">Laravel</span>
+            <span class="chip teal">REST API</span>
+          </div>
+          <span class="card-cta">Ver proyecto →</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="proyecto-vehiculos.html">
+        <div class="thumb">
+          <span class="tag">Backend</span>
+          <img src="assets/thumb-vehiculos.svg" alt="Ilustración de una patente de auto">
+        </div>
+        <div class="card-body">
+          <h3>Mapeo de vehículos y tipos de plaza</h3>
+          <p>Esquema multi-tabla para el mapeo automático de patentes vía DataCar y Placas.info.</p>
+          <div class="card-meta">
+            <span class="chip">MySQL</span>
+            <span class="chip teal">Diseño de esquema</span>
+          </div>
+          <span class="card-cta">Ver proyecto →</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="proyecto-assist.html">
+        <div class="thumb">
+          <span class="tag">UX / UI</span>
+          <img src="assets/thumb-assist.svg" alt="Ilustración de una app móvil de emergencias">
+        </div>
+        <div class="card-body">
+          <h3>Sistema ASSIST — gestión de emergencias</h3>
+          <p>Proyecto final de UX/UI: mapas de empatía, journey maps y benchmarking competitivo.</p>
+          <div class="card-meta">
+            <span class="chip">Investigación UX</span>
+            <span class="chip orange">TPI Facultad</span>
+          </div>
+          <span class="card-cta">Ver proyecto →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Lourdes</span>
+    <span>Hecho con HTML, CSS y JS — sin frameworks</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -7,7 +7,7 @@
 <meta name="description" content="Proyectos de Lourdes — backend, bases de datos y UX/UI.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -34,9 +34,14 @@
 
 <section style="padding: 60px 0;">
   <div class="wrap">
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="todos">Todos</button>
+      <button class="filter-btn" data-filter="diseno">Diseño UX/UI</button>
+      <button class="filter-btn" data-filter="backend">Backend</button>
+    </div>
     <div class="card-grid">
 
-      <a class="project-card" href="proyecto-adopcion-mascotas.html">
+      <a class="project-card" href="proyecto-adopcion-mascotas.html" data-categories="diseno backend">
         <div class="thumb">
           <span class="tag">Proyecto propio</span>
           <img src="assets/adopcion-home.png" alt="Pantalla de inicio del sitio Suramigo, de adopción de mascotas">
@@ -52,48 +57,33 @@
         </div>
       </a>
 
-      <a class="project-card" href="proyecto-control-ingreso.html">
-        <div class="thumb">
-          <span class="tag">Backend · EPS</span>
-          <img src="assets/thumb-control-ingreso.svg" alt="Ilustración de una barrera de estacionamiento">
+      <a class="project-card" href="proyecto-control-ingreso.html" data-categories="backend">
+        <div class="thumb logo-thumb">
+          <span class="tag">Seeker Parking</span>
+          <img src="assets/seeker/seeker.svg" alt="Logo de Seeker Parking">
         </div>
         <div class="card-body">
-          <h3>Migración de Control de Ingreso</h3>
-          <p>De CodeIgniter (V1) a una API REST en Laravel (V2): endpoints, migraciones y documentación Swagger.</p>
+          <h3>Migración CodeIgniter a Laravel</h3>
+          <p>De CodeIgniter a una API REST en Laravel: endpoints, migraciones y documentación Swagger.</p>
           <div class="card-meta">
             <span class="chip">Laravel</span>
             <span class="chip teal">REST API</span>
+            <span class="chip orange">Backend</span>
           </div>
           <span class="card-cta">Ver proyecto →</span>
         </div>
       </a>
 
-      <a class="project-card" href="proyecto-vehiculos.html">
-        <div class="thumb">
-          <span class="tag">Backend</span>
-          <img src="assets/thumb-vehiculos.svg" alt="Ilustración de una patente de auto">
+      <a class="project-card" href="proyecto-assist.html" data-categories="diseno">
+        <div class="thumb logo-thumb">
+          <span class="tag">Facultad</span>
+          <img src="assets/assist/logo-assist.png" alt="Logo de ASSIST, app de emergencias médicas">
         </div>
         <div class="card-body">
-          <h3>Mapeo de vehículos y tipos de plaza</h3>
-          <p>Esquema multi-tabla para el mapeo automático de patentes vía DataCar y Placas.info.</p>
-          <div class="card-meta">
-            <span class="chip">MySQL</span>
-            <span class="chip teal">Diseño de esquema</span>
-          </div>
-          <span class="card-cta">Ver proyecto →</span>
-        </div>
-      </a>
-
-      <a class="project-card" href="proyecto-assist.html">
-        <div class="thumb">
-          <span class="tag">UX / UI</span>
-          <img src="assets/thumb-assist.svg" alt="Ilustración de una app móvil de emergencias">
-        </div>
-        <div class="card-body">
-          <h3>Sistema ASSIST — gestión de emergencias</h3>
+          <h3>Diseño app gestión de emergencias</h3>
           <p>Proyecto final de UX/UI: mapas de empatía, journey maps y benchmarking competitivo.</p>
           <div class="card-meta">
-            <span class="chip">Investigación UX</span>
+            <span class="chip">Figma</span>
             <span class="chip orange">TPI Facultad</span>
           </div>
           <span class="card-cta">Ver proyecto →</span>
@@ -101,6 +91,7 @@
       </a>
 
     </div>
+    <p class="filter-empty" hidden>No hay proyectos en esta categoría todavía.</p>
   </div>
 </section>
 

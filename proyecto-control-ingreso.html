@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Migración de Control de Ingreso · Lourdes</title>
+<title>Migración CodeIgniter a Laravel · Lourdes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -26,36 +26,33 @@
 <header class="page-header">
   <div class="wrap">
     <a class="back-link" href="proyectos.html">← Volver a proyectos</a>
-    <p class="kicker">Backend · Seeker Parking · EPS</p>
-    <h1>Migración de Control de Ingreso</h1>
-    <p>Migración del módulo de Control de Ingreso desde una arquitectura legacy en CodeIgniter (V1) hacia una API REST en Laravel (V2).</p>
+    <p class="kicker">Backend · Seeker Parking</p>
+    <h1>Migración CodeIgniter a Laravel</h1>
+    <p>Migración del módulo de Control de Ingreso desde una arquitectura legacy en CodeIgniter hacia una API REST en Laravel.</p>
   </div>
 </header>
 
 <div class="wrap">
-  <div class="detail-hero-img">
-    <img src="assets/thumb-control-ingreso.svg" alt="Ilustración de una barrera de estacionamiento levantándose">
+  <div class="detail-hero-img logo-hero">
+    <img src="assets/seeker/seeker.svg" alt="Logo de Seeker Parking">
   </div>
 </div>
 
 <div class="wrap detail-body">
   <div>
     <h2>El contexto</h2>
-    <p>El módulo de Control de Ingreso de Seeker Parking —el que registra el ingreso y egreso de vehículos en playas de estacionamiento y eventos— corría sobre una versión antigua (V1) construida en CodeIgniter. Este proyecto es también el eje de mi anteproyecto de práctica profesional supervisada (EPS): documenté y ejecuté la migración hacia la V2, una API REST en Laravel.</p>
+    <p>Seeker Parking es la empresa donde trabajo actualmente: digitalizamos la gestión de estacionamientos y eventos. El módulo de Control de Ingreso —el que registra cuándo entra y sale cada vehículo— venía funcionando desde hacía años sobre una tecnología vieja, cada vez más difícil de mantener y de hacer crecer. Mi trabajo fue llevar ese módulo a una tecnología más moderna, manteniendo el servicio funcionando sin cortes para los usuarios.</p>
 
     <h2>Mi rol</h2>
     <ul>
-      <li>Implementación de endpoints RESTful para el nuevo módulo</li>
-      <li>Migraciones de base de datos desde el esquema legacy</li>
-      <li>Lógica de negocio para el registro de ingresos, egresos y cambios de vehículo en un ticket</li>
-      <li>Integración con otros módulos del sistema</li>
-      <li>Documentación de la API en Swagger</li>
+      <li>Reconstruí las funcionalidades del módulo viejo en el nuevo sistema</li>
+      <li>Adapté la base de datos a la nueva estructura sin perder información existente</li>
+      <li>Sumé la lógica para registrar entradas, salidas y cambios de vehículo dentro de un mismo ticket</li>
+      <li>Documenté cómo funciona cada parte para que el resto del equipo pueda usarla</li>
     </ul>
 
-    <h2>Entidades principales</h2>
-    <p>El trabajo giró en torno a cuatro entidades clave: <code>order_tickets</code> (el ticket de estacionamiento), <code>access_logs</code> (registro de accesos), <code>order_ticket_vehicle_changes</code> (cambios de vehículo dentro de un mismo ticket) y <code>order_ticket_comments</code> (comentarios asociados).</p>
-
-    <span class="note">✎ Este proyecto es interno de Seeker Parking: revisá qué detalles podés compartir públicamente antes de publicar</span>
+    <h2>Por qué importa</h2>
+    <p>Modernizar este módulo hace que sea más fácil detectar y corregir errores, más simple sumar funcionalidades nuevas a futuro, y reduce el riesgo de que el sistema falle justo en el momento en que un cliente necesita registrar un ingreso.</p>
   </div>
 
   <aside class="detail-sidebar">
@@ -63,7 +60,6 @@
       <h3>Detalle del proyecto</h3>
       <div class="plate-row"><span>Tipo</span><span>Migración backend</span></div>
       <div class="plate-row"><span>Empresa</span><span>Seeker Parking</span></div>
-      <div class="plate-row"><span>Contexto</span><span>Práctica EPS</span></div>
       <div class="plate-row"><span>Stack</span><span>Laravel · MySQL</span></div>
     </div>
   </aside>

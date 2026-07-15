@@ -1,6 +1,6 @@
 // Split-flap style role board (solo se usa en index.html)
 (function(){
-  const roles = ["BACKEND DEVELOPER", "ESTUDIANTE UNIVERSITARIA"];
+  const roles = ["BACKEND DEVELOPER", "ESTUDIANTE"];
   const board = document.getElementById('roleBoard');
   if(!board) return;
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ/ ·";

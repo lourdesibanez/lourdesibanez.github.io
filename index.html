@@ -7,7 +7,7 @@
 <meta name="description" content="Portfolio de Lourdes — Backend Developer en Seeker Parking y estudiante universitaria.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -27,13 +27,23 @@
 <header class="hero" id="top">
   <div class="gate-track" aria-hidden="true"></div>
   <div class="wrap hero-inner">
-    <span class="hero-eyebrow">Buenos Aires, Argentina</span>
-    <h1>Lourdes<br><span>Construyo sistemas,<br>diseño experiencias.</span></h1>
-    <div class="board" id="roleBoard" aria-label="Backend Developer, Estudiante Universitaria"></div>
-    <p class="lead">Backend developer en Seeker Parking, donde digitalizamos la gestión de estacionamiento urbano y de eventos. En paralelo, soy estudiante universitaria y voy sumando proyectos propios y de la facultad a este portfolio.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-primary" href="proyectos.html">Ver proyectos</a>
-      <a class="btn btn-ghost" href="#contacto">Contactarme</a>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="hero-eyebrow">Buenos Aires, Argentina</span>
+        <h1>Lourdes<br><span>Construyo sistemas,<br>diseño experiencias.</span></h1>
+        <div class="board" id="roleBoard" aria-label="Backend Developer, Estudiante"></div>
+        <p class="lead">Backend developer en Seeker Parking, donde digitalizamos la gestión de estacionamiento urbano y de eventos. En paralelo, soy estudiante universitaria y voy sumando proyectos propios y de la facultad a este portfolio.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="proyectos.html">Ver proyectos</a>
+          <a class="btn btn-ghost" href="#contacto">Contactarme</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="photo-frame">
+          <span class="photo-placeholder">L</span>
+        </div>
+        <!-- ✎ Para tu foto real: agregá el archivo a assets/ y reemplazá el <span class="photo-placeholder"> de arriba por <img src="assets/tu-foto.jpg" alt="Foto de Lourdes"> -->
+      </div>
     </div>
   </div>
 </header>
@@ -45,7 +55,6 @@
       <h2>De la base de datos<br>a la pantalla.</h2>
       <p>Trabajo en el backend de Seeker Parking, una startup de Buenos Aires que digitaliza la gestión de estacionamiento en entornos urbanos y eventos. Diseño esquemas de base de datos, construyo APIs REST y migro módulos legacy hacia arquitecturas más modernas.</p>
       <p>En paralelo curso mis estudios universitarios, donde sumo proyectos propios y trabajos en equipo que también forman parte de este portfolio.</p>
-      <span class="note">✎ Reemplazá este texto con tu bio real si querés ajustar algo</span>
     </div>
     <div class="plate-card">
       <h3>Ficha técnica</h3>
@@ -85,6 +94,15 @@
         </ul>
       </div>
       <div class="skill-panel">
+        <h4>Análisis y Diseño</h4>
+        <ul>
+          <li>Diagramas UML</li>
+          <li>Diagramas de clases</li>
+          <li>Casos de uso</li>
+          <li>Diagramas de secuencia</li>
+        </ul>
+      </div>
+      <div class="skill-panel">
         <h4>UX / UI</h4>
         <ul>
           <li>Mapas de empatía</li>
@@ -115,86 +133,57 @@
     </div>
     <div class="ticket-list">
 
-      <article class="ticket">
+      <a class="ticket" href="proyecto-control-ingreso.html">
         <div class="ticket-stub">
-          <span class="tag">Proyecto propio</span>
-          <span class="code">MVP</span>
-        </div>
-        <div class="ticket-body">
-          <h3>Sistema de Adopción de Mascotas</h3>
-          <p>MVP del proceso de adopción de mascotas de punta a punta, enfocado en lo esencial para lograr resultados tangibles: prototipo diseñado en Figma y desarrollo del sistema.</p>
-          <div class="ticket-meta">
-            <span class="chip">Figma</span>
-            <span class="chip teal">MVP</span>
-            <span class="chip orange">No Country</span>
+          <div class="ticket-stub-top">
+            <div class="ticket-logo"><img src="assets/seeker/seeker.svg" alt="Logo de Seeker Parking"></div>
           </div>
         </div>
-      </article>
-
-      <article class="ticket">
-        <div class="ticket-stub">
-          <span class="tag">Backend · EPS</span>
-          <span class="code">V1→V2</span>
-        </div>
         <div class="ticket-body">
-          <h3>Migración de Control de Ingreso</h3>
-          <p>Migración del módulo de Control de Ingreso de Seeker Parking desde CodeIgniter (V1) hacia una API REST en Laravel (V2), con endpoints, migraciones y documentación en Swagger.</p>
+          <h3>Migración CodeIgniter a Laravel</h3>
+          <p>Migración del módulo de Control de Ingreso de Seeker Parking desde CodeIgniter hacia una API REST en Laravel, con endpoints, migraciones y documentación en Swagger.</p>
           <div class="ticket-meta">
             <span class="chip">Laravel</span>
             <span class="chip">REST API</span>
-            <span class="chip teal">order_tickets</span>
+            <span class="chip orange">Backend</span>
           </div>
         </div>
-      </article>
+      </a>
 
-      <article class="ticket">
+      <a class="ticket" href="proyecto-assist.html">
         <div class="ticket-stub">
-          <span class="tag">Backend</span>
-          <span class="code">MMT</span>
-        </div>
-        <div class="ticket-body">
-          <h3>Mapeo de vehículos y tipos de plaza</h3>
-          <p>Diseño del esquema multi-tabla para el mapeo de patentes vía DataCar y Placas.info, y el flujo de mapeo manual para combinaciones nuevas de vehículos.</p>
-          <div class="ticket-meta">
-            <span class="chip">MySQL</span>
-            <span class="chip">Diseño de esquema</span>
+          <div class="ticket-stub-top">
+            <div class="ticket-logo"><img src="assets/assist/logo-assist.png" alt="Logo de ASSIST"></div>
           </div>
-        </div>
-      </article>
-
-      <article class="ticket">
-        <div class="ticket-stub">
-          <span class="tag">UX / UI</span>
           <span class="code">ASSIST</span>
         </div>
         <div class="ticket-body">
-          <h3>Sistema ASSIST — gestión de emergencias</h3>
+          <h3>Diseño app gestión de emergencias</h3>
           <p>Proyecto final de UX/UI: app móvil de gestión de emergencias, con mapas de empatía, customer journey maps y benchmarking competitivo.</p>
           <div class="ticket-meta">
-            <span class="chip">Investigación UX</span>
+            <span class="chip">Figma</span>
             <span class="chip orange">TPI Facultad</span>
           </div>
         </div>
-      </article>
+      </a>
 
     </div>
     <div style="text-align:center; margin-top:36px;">
-      <a class="btn btn-ghost" style="border-color: var(--line-light); color: var(--ink);" href="proyectos.html">Ver todos los proyectos con más detalle →</a>
+      <a class="btn btn-ghost" style="border-color: var(--line-light); color: var(--espresso);" href="proyectos.html">Ver todos los proyectos con más detalle →</a>
     </div>
   </div>
 </section>
 
 <section class="contact" id="contacto">
   <div class="wrap">
-    <p class="kicker" style="color:var(--yellow)">Contacto</p>
+    <p class="kicker" style="color:var(--gold)">Contacto</p>
     <h2>Hablemos</h2>
     <p class="lead">¿Tenés un proyecto, una oportunidad o simplemente una pregunta? Escribime.</p>
     <div class="contact-links">
-      <a class="btn btn-primary" href="mailto:tu-email@ejemplo.com">Email</a>
-      <a class="btn btn-ghost" href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn btn-ghost" href="https://github.com/tu-usuario" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-primary" href="mailto:ibanezlourdes62@gmail.com">Email</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/lourdes-iba%C3%B1ez-baa056284/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/lourdesibanez" target="_blank" rel="noopener">GitHub</a>
     </div>
-    <span class="note">✎ Reemplazá estos 3 links por tus datos reales antes de publicar</span>
   </div>
 </section>
 

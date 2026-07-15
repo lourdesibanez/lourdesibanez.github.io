@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Gestión de Stock · Lourdes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="nav-brand"><span class="plate">LP</span> Lourdes · Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="wrap">
+    <a class="back-link" href="proyectos.html">← Volver a proyectos</a>
+    <p class="kicker">Backend · Análisis funcional · Facultad</p>
+    <h1>Sistema de Gestión de Stock — Pastelería</h1>
+    <p>Análisis, diseño e implementación del sistema para Porky Cakes, un emprendimiento de repostería: pedidos, recetas y stock de insumos.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="detail-hero-img logo-hero">
+    <img src="assets/gestion-pasteleria/logo-pasteleria.png" alt="Logo de Porky Cakes">
+  </div>
+</div>
+
+<div class="wrap detail-body">
+  <div>
+    <h2>El contexto</h2>
+    <p>Porky Cakes es un emprendimiento de repostería de General Pico llevado adelante por una sola persona, que vende tortas y postres a través de Instagram y WhatsApp. Todo el proceso —presupuestar, comprar insumos, producir y entregar— lo manejaba a mano, con los precios de productos e ingredientes anotados en un Excel. Este fue el trabajo final de la materia Análisis y Diseño de Sistemas II (Facultad de Ingeniería, UNLPam, cursada 2023), en equipo con Nicolás Lucero y Martín Dal Santo: relevamos ese proceso real y lo convertimos en el análisis, diseño e implementación de un sistema de gestión.</p>
+
+    <h2>Qué construimos</h2>
+    <p>El proyecto contiene el código y la documentación completa del sistema: desde el modelo de dominio hasta la implementación de patrones de diseño como Facade, Singleton y DAO con Abstract Factory. Expusimos una API con endpoints para las operaciones CRUD sobre recetas, ingredientes y pedidos, registramos los accesos de los usuarios en un archivo de logs, y documentamos la arquitectura con la vista de componentes y conectores de Clements.</p>
+    <ul>
+      <li>Narrativa de dominio y modelo de dominio a partir del relevamiento del proceso real</li>
+      <li>Diagrama entidad-relación y modelo de casos de uso (rol Administrador)</li>
+      <li>Diseño estático (clases) y dinámico (secuencia) de los casos de uso principales</li>
+      <li>Prototipos navegables en Figma para cada pantalla</li>
+      <li>Implementación del backend en Java, con persistencia vía JDBC a MySQL</li>
+    </ul>
+
+    <h2>Casos de uso principales</h2>
+    <h3>Ver pedidos</h3>
+    <p>El administrador lista los pedidos con nombre del cliente, fechas de realización y entrega, precio y estado. Puede filtrarlos, ordenarlos por distintos atributos, o ver el detalle de productos y método de pago de cada uno.</p>
+    <h3>Cargar receta</h3>
+    <p>Permite cargar una receta nueva al recetario del sistema: se selecciona el producto al que pertenece, se ingresan el tiempo de preparación y las porciones, y se completan los ingredientes y los pasos de preparación.</p>
+    <h3>Actualizar stock</h3>
+    <p>El administrador selecciona el ingrediente al que quiere cambiarle el stock, completa la cantidad y confirma la operación; el sistema la guarda y la muestra actualizada.</p>
+    <h3>Hacer lista de compras</h3>
+    <p>El sistema genera automáticamente una lista de los ingredientes a comprar según el stock actual, con la opción de imprimirla.</p>
+
+    <h2>Patrones y arquitectura</h2>
+    <p>Usamos los patrones Facade, Singleton y DAO con Abstract Factory para separar responsabilidades entre controladores, DAOs y modelo. La arquitectura quedó documentada con una vista de componentes y conectores: el navegador se comunica por HTTP con PorkyApp (una aplicación JavaEE), que accede por JDBC a la base de datos administradora.</p>
+
+    <h2>Prototipo</h2>
+    <div class="gallery">
+      <figure>
+        <img src="assets/gestion-pasteleria/listado-pedidos.jpg" alt="Pantalla de listado de pedidos de Porky Cakes">
+        <figcaption>Ver pedidos</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/gestion-pasteleria/cargar-receta.jpg" alt="Pantalla para crear una receta nueva">
+        <figcaption>Cargar receta</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/gestion-pasteleria/actualizar-stock.jpg" alt="Pantalla para actualizar el stock de ingredientes">
+        <figcaption>Actualizar stock</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/gestion-pasteleria/lista-compras.jpg" alt="Pantalla de lista de compras">
+        <figcaption>Hacer lista de compras</figcaption>
+      </figure>
+    </div>
+ </div>
+
+  <aside class="detail-sidebar">
+    <div class="plate-card">
+      <h3>Detalle del proyecto</h3>
+      <div class="plate-row"><span>Tipo</span><span>Trabajo final (TIF)</span></div>
+      <div class="plate-row"><span>Materia</span><span>Análisis y Diseño de Sistemas II</span></div>
+      <div class="plate-row"><span>Facultad</span><span>Ingeniería · UNLPam</span></div>
+      <div class="plate-row"><span>Cursada</span><span>2023</span></div>
+      <div class="plate-row"><span>Equipo</span><span>3 integrantes</span></div>
+      <div class="plate-row"><span>Stack</span><span>Java · JDBC · MySQL · Velocity</span></div>
+      <a class="btn btn-primary" href="https://github.com/lourdesibanez/PorkyCakes" target="_blank" rel="noopener">Ver código en GitHub</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Lourdes</span>
+    <span>Hecho con HTML, CSS y JS — sin frameworks</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

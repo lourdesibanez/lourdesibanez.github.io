@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1943: Batalla de Midway · Lourdes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="nav-brand"><span class="plate">LP</span> Lourdes · Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="wrap">
+    <a class="back-link" href="proyectos.html">← Volver a proyectos</a>
+    <p class="kicker">Backend · Java · Facultad</p>
+    <h1>1943: Batalla de Midway</h1>
+    <p>Plataforma de escritorio para ejecutar distintos videojuegos, con "1943: Batalla de Midway" como primer juego implementado.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="detail-hero-img">
+    <img src="assets/videojuego-batalla-midway/home-juego.png" alt="Pantalla de inicio del juego 1943: Batalla de Midway, con las opciones Jugar, Ranking y Salir">
+  </div>
+</div>
+
+<div class="wrap detail-body">
+  <div>
+    <h2>El contexto</h2>
+    <p>La consigna era construir una plataforma de software que permita ejecutar diferentes videojuegos, implementando los elementos básicos comunes a todos ellos para que sea fácil desarrollar y sumar nuevos juegos a futuro. Sobre esa base, el juego que desarrollamos fue "1943: Batalla de Midway": el jugador controla un avión de la Fuerza Aérea de EE. UU. y su misión es abrirse paso a través de distintos niveles destruyendo a la flota aérea del Imperio de Japón, hasta enfrentar y destruir al buque insignia enemigo, el Yamato.</p>
+
+    <h2>Qué construimos</h2>
+    <ul>
+      <li>La lógica de los distintos niveles y de todos los objetos en movimiento (aviones, municiones, bonus), siguiendo las bases de la Programación Orientada a Objetos</li>
+      <li>Pantalla de configuración: teclas, volumen y modo de pantalla</li>
+      <li>Sistema de ranking: nombre del jugador, puntaje y fecha se guardan en un archivo JSON y se muestran en una pantalla propia con el top 10</li>
+    </ul>
+
+    <h2>Cómo se juega</h2>
+    <p>Al elegir el juego, se puede consultar la tabla de ranking con los 10 mejores puntajes o arrancar a jugar directamente. El objetivo es destruir a los aviones enemigos para llegar a la fase final de cada misión y enfrentarse al "jefe" de turno; para pasar de nivel hay que causarle entre un 70% y 100% de daño, o la misión se repite.</p>
+    <p>El avión del jugador tiene una barra de energía que baja al recibir impactos, chocar con otro avión, agotarse el tiempo de misión o usar ataques especiales (Relámpago y Tsunami). En el camino se pueden atrapar power-ups y armas con efecto temporal —Escopeta, Ametralladora, Láser, entre otras— que se potencian si se repite el mismo bonus. Los controles (flechas para moverse, X para disparar, Z para ataque especial, espacio para pausa) son totalmente reconfigurables, con un botón para volver a los valores por defecto.</p>
+    <p>El juego termina cuando el jugador destruye al Yamato (jefe final obligatorio) o cuando se queda sin energía.</p>
+
+    <h2>Arquitectura</h2>
+    <p>El diseño de clases modela la jerarquía típica de este tipo de juego: un <code>JGame</code> base del que hereda <code>1943 Batalla de Midway</code>, niveles compuestos por <code>Objeto gráfico</code> (aviones, bonus, munición), una jerarquía de <code>Enemigo</code> (aviones, barcos y jefes finales) y de <code>Arma</code> para cada tipo de disparo, y un <code>Sistema</code> que administra el <code>Ranking</code> de puntajes.</p>
+
+    <h2>Galería</h2>
+    <div class="gallery">
+      <figure>
+        <img src="assets/videojuego-batalla-midway/home-juego.png" alt="Pantalla de inicio con las opciones Jugar, Ranking y Salir">
+        <figcaption>Pantalla de inicio</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/videojuego-batalla-midway/juego.png" alt="Jugabilidad: avión del jugador esquivando formaciones de aviones enemigos">
+        <figcaption>En juego: fase de combate aéreo</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/videojuego-batalla-midway/diagrama-clases.jpg" alt="Diagrama de clases UML del sistema del videojuego">
+        <figcaption>Diagrama de clases</figcaption>
+      </figure>
+    </div>
+
+   </div>
+
+  <aside class="detail-sidebar">
+    <div class="plate-card">
+      <h3>Detalle del proyecto</h3>
+      <div class="plate-row"><span>Tipo</span><span>Trabajo práctico (Facultad)</span></div>
+      <div class="plate-row"><span>Plataforma</span><span>Aplicación de escritorio</span></div>
+      <div class="plate-row"><span>Stack</span><span>Java · Swing · AWT</span></div>
+      <a class="btn btn-primary" href="https://github.com/lourdesibanez/Juego1943" target="_blank" rel="noopener">Ver código en GitHub</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Lourdes</span>
+    <span>Hecho con HTML, CSS y JS — sin frameworks</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

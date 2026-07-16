@@ -40,31 +40,87 @@
 
 <div class="wrap detail-body">
   <div>
-    <h2>La consigna</h2>
-    <p>Este fue un examen final de la materia Diseño de Interfaces de Usuario (Facultad de Ingeniería, UNLPam), individual y a resolver en 3 horas. El brief ya venía definido: RutaPampa, una app para conectar turistas con prestadores de turismo rural en La Pampa —estancias, cabalgatas, gastronomía local, visitas guiadas— y los tres entregables eran fijos: prototipo navegable, user persona y arquitectura de la información.</p>
-    <p>Con ese tiempo acotado, no había margen para investigación de campo como en <a href="proyecto-assist.html">ASSIST</a>: el trabajo fue directo de la consigna al prototipo, apoyado en la persona y la arquitectura para mantener las decisiones de diseño consistentes.</p>
+    <h2>El desafío</h2>
+    <p>La provincia de La Pampa cuenta con una amplia oferta de turismo rural, pero gran parte de esa información se encuentra dispersa y poco digitalizada: cada prestador maneja su propia difusión, sin un canal centralizado donde un turista pueda comparar opciones. Este fue el examen final de la materia Diseño de Interfaces de Usuario (Facultad de Ingeniería, UNLPam), individual y a resolver en 3 horas: diseñar RutaPampa, una app que centralizara experiencias de turismo rural —estancias, cabalgatas, gastronomía local, visitas guiadas— y le permitiera a un turista buscar, comparar y organizar su viaje sin depender de fuentes dispersas.</p>
+    <p>Con ese tiempo acotado no había margen para investigación de campo como en <a href="proyecto-assist.html">ASSIST</a>: el trabajo fue directo de la consigna al prototipo, apoyado en la persona y la arquitectura para mantener las decisiones de diseño consistentes.</p>
 
-    <h2>Alcance</h2>
-    <p>La app contempla dos perfiles, turista y prestador, y así quedaron reflejados en la arquitectura de la información. Dado el tiempo del examen, prioricé diseñar en detalle el lado del turista —búsqueda, filtros, resultados e itinerarios— y dejé el lado del prestador (gestión del negocio, reservas, estadísticas) mapeado en la arquitectura pero sin prototipar pantalla por pantalla.</p>
-
-    <h2>Arquitectura de la información</h2>
-    <p>Definí seis secciones principales: Inicio, Explorar destinos (naturaleza, turismo rural, gastronomía), Itinerarios, Descargas, Perfil del turista y Perfil del prestador. Esa estructura fue la que ordenó después el prototipo: cada pantalla que diseñé cuelga de una de estas ramas, para que la navegación sea predecible incluso donde no llegué a detallar cada subsección.</p>
-    <div class="detail-hero-img" style="margin: 8px 0 24px;">
-      <img src="assets/ruta-pampa/arquitectura-info.png" alt="Diagrama de arquitectura de la información de RutaPampa, con las secciones Inicio, Explorar destinos, Itinerarios, Descargas, Perfil del turista y Perfil del prestador">
-    </div>
-
-    <h2>Propuesta de diseño</h2>
+    <h2>Objetivos</h2>
+    <p>El diseño debía permitir que un turista pudiera:</p>
     <ul>
-      <li><strong>Inicio con búsqueda directa:</strong> un buscador libre ("Estancias con parrillas...") y actividades destacadas con precio, rating y tags como "pet friendly", pensado para que encontrar algo concreto no dependa de navegar menús</li>
-      <li><strong>Registro con dos roles:</strong> el mismo formulario permite elegir entre perfil turista o prestador desde el arranque, sin flujos separados</li>
-      <li><strong>Filtros combinables:</strong> precio, tipo de experiencia (gastronomía, alojamiento, visitas guiadas, pet friendly), lugares de interés, rango de fechas y cantidad de personas, todo en un mismo panel</li>
-      <li><strong>Resultados con contexto humano:</strong> cada resultado de búsqueda muestra quién ofrece la experiencia —nombre, foto, una frase que lo describe— para darle confianza a alguien que está por reservar algo con un desconocido</li>
-      <li><strong>Estado vacío con salida clara:</strong> cuando la búsqueda no encuentra nada, la pantalla invita directamente a cambiar los filtros en lugar de dejar al usuario en un callejón sin salida</li>
-      <li><strong>Itinerarios armados por otros viajeros:</strong> circuitos ya organizados (como "Circuito Lihuel Calel") con línea de tiempo hora a hora, más la opción de crear un itinerario propio desde cero</li>
+      <li>Descubrir destinos rurales.</li>
+      <li>Buscar experiencias mediante filtros.</li>
+      <li>Crear itinerarios personalizados.</li>
+      <li>Guardar contenido para consultarlo sin conexión.</li>
+      <li>Contactar prestadores de servicios.</li>
     </ul>
 
-    <h2>Conclusiones</h2>
-    <p>Resolver esto en 3 horas obligó a priorizar rápido: decidir qué pantallas contaban la historia completa del flujo turista y qué quedaba solamente resuelto a nivel de arquitectura. Como siguiente paso, me queda pendiente prototipar el lado del prestador —publicación de experiencias, gestión de reservas, disponibilidad— que en este examen quedó definido en la arquitectura pero no en pantallas.</p>
+    <h2>User Persona</h2>
+    <div class="persona-card">
+      <div class="persona-avatar">C</div>
+      <div class="persona-info">
+        <p class="persona-name">Carla</p>
+        <p class="persona-role">Turista con perfil académico / profesional</p>
+        <p>Carla representa un perfil diferente al turista tradicional. Su motivación nace desde el ámbito académico y profesional: al intentar organizar un viaje detecta la escasa digitalización de la información turística de La Pampa. Esa necesidad se convierte en la oportunidad de diseño del proyecto.</p>
+      </div>
+    </div>
+
+    <h2>Arquitectura de la información</h2>
+    <div class="detail-hero-img" style="margin: 8px 0 16px;">
+      <img src="assets/ruta-pampa/arquitectura-info.png" alt="Diagrama de arquitectura de la información de RutaPampa, con las secciones Inicio, Explorar destinos, Itinerarios, Descargas, Perfil del turista y Perfil del prestador">
+    </div>
+    <p>La arquitectura organiza la aplicación en seis secciones principales —Inicio, Explorar destinos, Itinerarios, Descargas, Perfil del turista y Perfil del prestador—, separando claramente las funcionalidades de cada rol. Esta estructura permitió mantener una navegación consistente durante todo el diseño del prototipo.</p>
+
+    <h2>Prototipo</h2>
+    <h3>Registro</h3>
+    <p>El mismo formulario permite elegir entre perfil turista o prestador desde el arranque, sin flujos separados.</p>
+    <h3>Exploración</h3>
+    <p>Buscador libre en el inicio más un panel único de filtros combinables: precio, tipo de experiencia, lugares de interés, fechas y personas.</p>
+    <h3>Resultados</h3>
+    <p>Cada experiencia muestra a su prestador —nombre, foto, frase descriptiva— para generar confianza, y un estado vacío que siempre ofrece una acción siguiente.</p>
+    <h3>Itinerarios</h3>
+    <p>Circuitos ya armados por otros viajeros con línea de tiempo hora a hora, más la opción de crear uno propio desde cero.</p>
+
+    <h2>Decisiones de diseño</h2>
+    <h3>Navegación</h3>
+    <p>Se utilizó una navegación global mediante una barra inferior presente en todas las pantallas para garantizar acceso permanente a las funciones principales.</p>
+    <h3>Descargas offline</h3>
+    <p>Se incorporó una sección específica de descargas para responder al contexto del turismo rural, donde la conectividad puede ser limitada.</p>
+    <h3>Filtros</h3>
+    <p>Se agruparon todos los filtros en una única pantalla para evitar múltiples pasos durante la búsqueda.</p>
+    <h3>Resultados</h3>
+    <p>Cada experiencia muestra información del prestador para generar mayor confianza antes de realizar una reserva.</p>
+    <h3>Estados vacíos</h3>
+    <p>Los mensajes de error siempre ofrecen una acción siguiente, evitando que el usuario quede sin alternativas.</p>
+
+    <h2>UX Writing</h2>
+    <div class="table-wrap">
+      <table class="ux-table">
+        <thead>
+          <tr><th>Situación</th><th>Microcopy</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Onboarding</td><td>¿Adónde viajas?</td></tr>
+          <tr><td>Sin resultados</td><td>Lo siento, intenta cambiar tu fecha</td></tr>
+          <tr><td>Reserva exitosa</td><td>¡Felicidades! Cabaña Los Álamos confirmó tu reserva</td></tr>
+          <tr><td>Estado vacío</td><td>¿Qué estás esperando para organizar tu viaje?</td></tr>
+          <tr><td>Push</td><td>Parapente Calel acaba de publicar nuevas aventuras</td></tr>
+          <tr><td>Placeholder</td><td>Estancias con parrilla al aire libre</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Qué aprendí</h2>
+    <p>Este proyecto me permitió practicar cómo priorizar funcionalidades y tomar decisiones de diseño bajo una restricción fuerte de tiempo. Al tratarse de un examen de tres horas, fue necesario definir qué funcionalidades desarrollar en profundidad y cuáles resolver únicamente desde la arquitectura de la información.</p>
+
+    <h2>Próximos pasos</h2>
+    <p>Si continuara el proyecto, desarrollaría el flujo completo del perfil prestador incorporando:</p>
+    <ul>
+      <li>Publicación de experiencias</li>
+      <li>Gestión de reservas</li>
+      <li>Calendario de disponibilidad</li>
+      <li>Panel de estadísticas</li>
+      <li>Administración del negocio</li>
+    </ul>
 
     <h2>Galería</h2>
     <div class="gallery">

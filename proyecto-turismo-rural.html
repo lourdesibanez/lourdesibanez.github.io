@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diseño UX/UI: Turismo Rural · Lourdes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="nav-brand"><span class="plate">LI</span> Lourdes Ibañez</a>
+    <ul class="nav-links">
+      <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="wrap">
+    <a class="back-link" href="proyectos.html">← Volver a proyectos</a>
+    <p class="kicker">UX / UI · Examen individual de cátedra</p>
+    <h1>Diseño UX/UI: Turismo Rural</h1>
+    <p>Prototipo, persona y arquitectura de la información de RutaPampa, una app de turismo rural, resueltos en un examen individual de 3 horas.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="detail-hero-img logo-hero">
+    <img src="assets/ruta-pampa/onboarding.png" alt="Pantalla de inicio de RutaPampa con buscador y actividades destacadas">
+  </div>
+</div>
+
+<div class="wrap detail-body">
+  <div>
+    <h2>La consigna</h2>
+    <p>Este fue un examen final de la materia Diseño de Interfaces de Usuario (Facultad de Ingeniería, UNLPam), individual y a resolver en 3 horas. El brief ya venía definido: RutaPampa, una app para conectar turistas con prestadores de turismo rural en La Pampa —estancias, cabalgatas, gastronomía local, visitas guiadas— y los tres entregables eran fijos: prototipo navegable, user persona y arquitectura de la información.</p>
+    <p>Con ese tiempo acotado, no había margen para investigación de campo como en <a href="proyecto-assist.html">ASSIST</a>: el trabajo fue directo de la consigna al prototipo, apoyado en la persona y la arquitectura para mantener las decisiones de diseño consistentes.</p>
+
+    <h2>Alcance</h2>
+    <p>La app contempla dos perfiles, turista y prestador, y así quedaron reflejados en la arquitectura de la información. Dado el tiempo del examen, prioricé diseñar en detalle el lado del turista —búsqueda, filtros, resultados e itinerarios— y dejé el lado del prestador (gestión del negocio, reservas, estadísticas) mapeado en la arquitectura pero sin prototipar pantalla por pantalla.</p>
+
+    <h2>Arquitectura de la información</h2>
+    <p>Definí seis secciones principales: Inicio, Explorar destinos (naturaleza, turismo rural, gastronomía), Itinerarios, Descargas, Perfil del turista y Perfil del prestador. Esa estructura fue la que ordenó después el prototipo: cada pantalla que diseñé cuelga de una de estas ramas, para que la navegación sea predecible incluso donde no llegué a detallar cada subsección.</p>
+    <div class="detail-hero-img" style="margin: 8px 0 24px;">
+      <img src="assets/ruta-pampa/arquitectura-info.png" alt="Diagrama de arquitectura de la información de RutaPampa, con las secciones Inicio, Explorar destinos, Itinerarios, Descargas, Perfil del turista y Perfil del prestador">
+    </div>
+
+    <h2>Propuesta de diseño</h2>
+    <ul>
+      <li><strong>Inicio con búsqueda directa:</strong> un buscador libre ("Estancias con parrillas...") y actividades destacadas con precio, rating y tags como "pet friendly", pensado para que encontrar algo concreto no dependa de navegar menús</li>
+      <li><strong>Registro con dos roles:</strong> el mismo formulario permite elegir entre perfil turista o prestador desde el arranque, sin flujos separados</li>
+      <li><strong>Filtros combinables:</strong> precio, tipo de experiencia (gastronomía, alojamiento, visitas guiadas, pet friendly), lugares de interés, rango de fechas y cantidad de personas, todo en un mismo panel</li>
+      <li><strong>Resultados con contexto humano:</strong> cada resultado de búsqueda muestra quién ofrece la experiencia —nombre, foto, una frase que lo describe— para darle confianza a alguien que está por reservar algo con un desconocido</li>
+      <li><strong>Estado vacío con salida clara:</strong> cuando la búsqueda no encuentra nada, la pantalla invita directamente a cambiar los filtros en lugar de dejar al usuario en un callejón sin salida</li>
+      <li><strong>Itinerarios armados por otros viajeros:</strong> circuitos ya organizados (como "Circuito Lihuel Calel") con línea de tiempo hora a hora, más la opción de crear un itinerario propio desde cero</li>
+    </ul>
+
+    <h2>Conclusiones</h2>
+    <p>Resolver esto en 3 horas obligó a priorizar rápido: decidir qué pantallas contaban la historia completa del flujo turista y qué quedaba solamente resuelto a nivel de arquitectura. Como siguiente paso, me queda pendiente prototipar el lado del prestador —publicación de experiencias, gestión de reservas, disponibilidad— que en este examen quedó definido en la arquitectura pero no en pantallas.</p>
+
+    <h2>Galería</h2>
+    <div class="gallery">
+      <figure>
+        <img src="assets/ruta-pampa/onboarding.png" alt="Pantalla de inicio de RutaPampa con buscador y actividades destacadas">
+        <figcaption>Inicio: búsqueda y actividades destacadas</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/ruta-pampa/registro.png" alt="Pantalla de registro con selección de perfil turista o prestador">
+        <figcaption>Registro: perfil turista o prestador</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/ruta-pampa/busqueda-generica.png" alt="Panel de filtros con precio, tipo de experiencia, lugares de interés, fechas y personas">
+        <figcaption>Filtros de búsqueda</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/ruta-pampa/resultados.png" alt="Resultados de búsqueda de Parque Luro con distintas experiencias y sus anfitriones">
+        <figcaption>Resultados de búsqueda</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/ruta-pampa/sin-resultados.png" alt="Estado vacío cuando la búsqueda no encuentra actividades">
+        <figcaption>Estado sin resultados</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/ruta-pampa/itinerarios.png" alt="Itinerarios recomendados armados por otros usuarios viajeros">
+        <figcaption>Itinerarios recomendados</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <aside class="detail-sidebar">
+    <div class="plate-card">
+      <h3>Detalle del proyecto</h3>
+      <div class="plate-row"><span>Tipo</span><span>Examen final (individual)</span></div>
+      <div class="plate-row"><span>Materia</span><span>Diseño de Interfaces de Usuario</span></div>
+      <div class="plate-row"><span>Facultad</span><span>Ingeniería · UNLPam</span></div>
+      <div class="plate-row"><span>Fecha</span><span>Mayo 2026</span></div>
+      <div class="plate-row"><span>Duración</span><span>3 horas</span></div>
+      <div class="plate-row"><span>Herramientas</span><span>Figma</span></div>
+      <a class="btn btn-primary" href="https://www.figma.com/design/xxwkzRdtqcdBVHv6m5R9E2/Examen?node-id=2-2&t=8yB6quBcIwjE032A-1" target="_blank" rel="noopener"><svg class="icon-figma" viewBox="0 0 38 57" aria-hidden="true"><path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/><path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/><path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/><path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/><path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/></svg>Ver prototipo</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Lourdes</span>
+    <span>Hecho con HTML, CSS y JS — sin frameworks</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

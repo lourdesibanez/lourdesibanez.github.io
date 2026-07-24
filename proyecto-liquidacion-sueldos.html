@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Liquidación de Sueldos · Lourdes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="nav-brand"><span class="plate">LI</span> Lourdes Ibañez</a>
+    <ul class="nav-links">
+      <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="wrap">
+    <a class="back-link" href="proyectos.html">← Volver a proyectos</a>
+    <p class="kicker">Backend · Sistema en producción</p>
+    <h1>Sistema de Liquidación de Sueldos</h1>
+    <p>Liquidación de haberes para Los Caldenes, una institución de La Pampa, con motor de cálculo configurable e integración directa a AFIP.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="detail-hero-img logo-hero">
+    <img src="assets/liquidacion-sueldos/logoLosCaldenes.webp" alt="Logo de Los Caldenes">
+  </div>
+</div>
+
+<div class="wrap detail-body">
+  <div>
+    <h2>El contexto</h2>
+    <p>Los Caldenes es una institución de La Pampa con dos tipos de personal muy distintos entre sí: docentes, bajo el convenio "Docentes de La Pampa", y personal de comercio, bajo el convenio de Empleados de Comercio, además de personal fuera de convenio. Cada grupo tiene su propia escala salarial, sus propios conceptos remunerativos y no remunerativos, y sus propias reglas de aportes y contribuciones. Necesitaban un sistema propio que pudiera calcular todo eso —básico, antigüedad, presentismo, aguinaldo, asignaciones familiares— sin quedar atado a una única forma de liquidar, y que además cumpliera con lo que exige AFIP: generar el Libro Sueldo Digital y presentar la información previsional en el formato que pide el organismo.</p>
+
+    <h2>Mi rol</h2>
+    <p>Formo parte del equipo que desarrolla y mantiene el sistema desde agosto de 2024, junto a dos compañeras más. Trabajo full-stack: backend en Laravel —modelo de datos, migraciones, controladores, integración con los webservices SOAP de AFIP— y frontend en Vue vía Inertia, incluyendo buena parte del motor de cálculo de liquidación que corre del lado del cliente.</p>
+
+    <h2>Cómo funciona la liquidación</h2>
+    <p>En vez de hardcodear las reglas de cada convenio, cada concepto de liquidación (básico, antigüedad, presentismo, SAC, asignación familiar...) se define con una fórmula editable, usando funciones propias tipo Excel (SI, MAX, MIN, ANOS_ENTRE, porcentajes de antigüedad docente) y variables reutilizables. El motor evalúa esas fórmulas dinámicamente para cada empleado y cargo, calcula el aguinaldo comparando la mejor remuneración del semestre entre convenios, y resuelve bases imponibles y aportes diferenciados por rubro (SIPA, INSSJyP, obra social, ART, asignaciones familiares). Esto permite ajustar un concepto o sumar uno nuevo cuando cambia una escala o un decreto, sin tocar el código del sistema.</p>
+
+    <h2>Funcionalidades principales</h2>
+    <ul>
+      <li><strong>Gestión de empleados:</strong> datos personales, AFIP, obra social, CBU, convenio, antigüedad general y docente, grupo familiar</li>
+      <li><strong>Cargos y conceptos:</strong> puestos con puntos y categoría, conceptos configurables con fórmula propia y mapeo a los códigos oficiales de AFIP</li>
+      <li><strong>Liquidaciones:</strong> mensuales, quincenas, aguinaldo, vacaciones, adelantos y liquidación final, con selección de empleados y carga de novedades</li>
+      <li><strong>Recibos de sueldo:</strong> generación en PDF (estándar y para papel foliado preimpreso) y envío por correo</li>
+      <li><strong>Exportación bancaria:</strong> archivos Excel agrupados por banco, listos para presentar en Banco de la Pampa</li>
+      <li><strong>AFIP:</strong> generación del Libro Sueldo Digital en el formato de ancho fijo que exige el organismo, y gestión de certificados digitales para los webservices</li>
+    </ul>
+
+    <h2>Prototipo</h2>
+    <div class="gallery">
+      <figure>
+        <img src="assets/liquidacion-sueldos/listado-liquidaciones.webp" alt="Listado de liquidaciones realizadas">
+        <figcaption>Listado de liquidaciones</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/liquidacion-sueldos/listado-conceptos.webp" alt="Listado de conceptos de liquidación configurados">
+        <figcaption>Listado de conceptos</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/liquidacion-sueldos/edicion-empleado-basico.webp" alt="Edición de los datos personales básicos de un empleado">
+        <figcaption>Datos básicos del empleado</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/liquidacion-sueldos/edicion-empleado-laboral.webp" alt="Edición de los datos laborales de un empleado">
+        <figcaption>Datos laborales del empleado</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/liquidacion-sueldos/cargo-asignado-empleado.webp" alt="Cargo asignado a un empleado, con categoría y puntos">
+        <figcaption>Cargo asignado a un empleado</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/liquidacion-sueldos/conceptos-asignados-empleado.webp" alt="Conceptos de liquidación asignados a un empleado">
+        <figcaption>Conceptos asignados a un empleado</figcaption>
+      </figure>
+    </div>
+
+    <h2>Estado actual</h2>
+    <p>El sistema está en producción y en desarrollo activo desde hace casi dos años, con mejoras constantes a pedido del cliente. Como próximo paso, me gustaría sumar tests automatizados sobre el motor de cálculo y la generación de AFIP, hoy la parte del sistema con menos cobertura.</p>
+  </div>
+
+  <aside class="detail-sidebar">
+    <div class="plate-card">
+      <h3>Detalle del proyecto</h3>
+      <div class="plate-row"><span>Tipo</span><span>Sistema en producción</span></div>
+      <div class="plate-row"><span>Cliente</span><span>Los Caldenes · La Pampa</span></div>
+      <div class="plate-row"><span>Rol</span><span>Full-stack</span></div>
+      <div class="plate-row"><span>Equipo</span><span>3 personas</span></div>
+      <div class="plate-row"><span>Stack</span><span>Laravel · Vue · MySQL</span></div>
+      <div class="plate-row"><span>Desde</span><span>Agosto 2024</span></div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Lourdes</span>
+    <span>Hecho con HTML, CSS y JS — sin frameworks</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

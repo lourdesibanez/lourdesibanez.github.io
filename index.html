@@ -7,7 +7,7 @@
 <meta name="description" content="Portfolio de Lourdes — Backend Developer en Seeker Parking y estudiante universitaria.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -15,7 +15,7 @@
 
 <nav class="nav">
   <div class="wrap">
-    <a href="index.html" class="nav-brand"><span class="plate">LI</span> Lourdes Ibañez</a>
+    <a href="index.html" class="nav-brand"><span class="plate">LI</span> <span class="brand-name">Lourdes Ibañez</span></a>
     <ul class="nav-links">
       <li><a href="#sobre-mi">Sobre mí</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -26,24 +26,48 @@
 </nav>
 
 <header class="hero" id="top">
-  <div class="gate-track" aria-hidden="true"></div>
-  <div class="wrap hero-inner">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <span class="hero-eyebrow">Buenos Aires, Argentina</span>
-        <h1>Lourdes<br><span>Construyo sistemas,<br>diseño experiencias.</span></h1>
-        <div class="board" id="roleBoard" aria-label="Backend Developer, Estudiante"></div>
-        <p class="lead">Backend developer en Seeker Parking, donde digitalizamos la gestión de estacionamiento urbano y de eventos. En paralelo, soy estudiante universitaria y voy sumando proyectos propios y de la facultad a este portfolio.</p>
-        <div class="hero-ctas">
-          <a class="btn btn-primary" href="proyectos.html">Ver proyectos</a>
-          <a class="btn btn-ghost" href="#contacto">Contactarme</a>
+  <div class="canvas">
+    <div class="wrap hero-inner">
+      <p class="frame-tag" aria-hidden="true"><span class="sq"></span>Frame — Hero · index</p>
+      <div class="artboard">
+        <span class="corner tl" aria-hidden="true">+</span>
+        <span class="corner tr" aria-hidden="true">+</span>
+        <span class="corner bl" aria-hidden="true">+</span>
+        <span class="corner br" aria-hidden="true">+</span>
+        <div class="ruler" aria-hidden="true"></div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="hero-eyebrow"><span class="caret">&gt;</span> ubicacion: Buenos Aires, Argentina</span>
+            <div class="board" id="roleBoard" aria-label="Backend Developer, Estudiante"></div>
+            <div class="dim" aria-hidden="true">↕ 20</div>
+            <div class="hero-h1-row">
+              <h1>const lourdes =<br><span class="str">"construyo sistemas,<br>diseño experiencias"</span></h1>
+              <span class="connector" aria-hidden="true"></span>
+              <span class="anno" aria-hidden="true">H1 · mono · 700</span>
+            </div>
+            <p class="lead">Backend developer en Seeker Parking, donde digitalizamos la gestión de estacionamiento urbano y de eventos. En paralelo, soy estudiante universitaria y voy sumando proyectos propios y de la facultad a este portfolio.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="proyectos.html">Ver proyectos</a>
+              <a class="btn btn-ghost" href="#contacto">Contactarme</a>
+              <span class="connector" aria-hidden="true"></span>
+              <span class="anno" aria-hidden="true">state: hover → bg #1a1f2b</span>
+            </div>
+          </div>
+          <div class="hero-photo">
+            <div class="photo-frame">
+              <span class="handle tl" aria-hidden="true"></span>
+              <span class="handle tr" aria-hidden="true"></span>
+              <span class="handle bl" aria-hidden="true"></span>
+              <span class="handle br" aria-hidden="true"></span>
+              <span class="photo-placeholder">L</span>
+              <!-- ✎ Para tu foto real: agregá el archivo a assets/ y reemplazá el <span class="photo-placeholder"> de arriba por <img src="assets/tu-foto.jpg" alt="Foto de Lourdes"> -->
+            </div>
+            <div class="anno-under" aria-hidden="true">
+              <span class="connector-v"></span>
+              <span class="anno">asset: photo@2x · 3:4</span>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="hero-photo">
-        <div class="photo-frame">
-          <span class="photo-placeholder">L</span>
-        </div>
-        <!-- ✎ Para tu foto real: agregá el archivo a assets/ y reemplazá el <span class="photo-placeholder"> de arriba por <img src="assets/tu-foto.jpg" alt="Foto de Lourdes"> -->
       </div>
     </div>
   </div>
@@ -187,14 +211,14 @@
 
     </div>
     <div style="text-align:center; margin-top:36px;">
-      <a class="btn btn-ghost" style="border-color: var(--line-light); color: var(--espresso);" href="proyectos.html">Ver todos los proyectos →</a>
+      <a class="btn btn-ghost" href="proyectos.html">Ver todos los proyectos →</a>
     </div>
   </div>
 </section>
 
 <section class="contact" id="contacto">
   <div class="wrap">
-    <p class="kicker" style="color:var(--gold)">Contacto</p>
+    <p class="kicker">Contacto</p>
     <h2>Hablemos</h2>
     <p class="lead">¿Tenés un proyecto, una oportunidad o simplemente una pregunta? Escribime.</p>
     <div class="contact-links">

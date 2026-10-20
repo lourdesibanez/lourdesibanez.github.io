@@ -335,6 +335,8 @@
   }
   .page-header p{ color: var(--blush-200); max-width: 560px; font-size: 15.5px; margin:0; }
   .page-header .header-actions{ margin-top: 22px; }
+  .page-header .note{ color: var(--blush-200); margin-top: 14px; }
+  .page-header .note strong{ color: var(--blush-50); }
   .btn-play{ background: var(--blush-50); color: var(--carbon-900); }
   .btn-play:hover{ transform: translateY(-2px); background: var(--malva); color: var(--carbon-900); }
   .back-link{

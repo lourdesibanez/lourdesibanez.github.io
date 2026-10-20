@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geometry Dash · Lourdes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="nav-brand"><span class="plate">LI</span> <span class="brand-name">Lourdes Ibañez</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="wrap">
+    <a class="back-link" href="proyectos.html">← Volver a proyectos</a>
+    <p class="kicker">Mobile · Flutter · Facultad</p>
+    <h1>Geometry Dash</h1>
+    <p>Juego de plataformas estilo runner hecho en Flutter: saltá los obstáculos, sumá puntos y juntá diamantes. Se puede jugar directo desde el navegador.</p>
+    <p class="header-actions">
+      <a class="btn btn-play" href="https://lourdesibanez.github.io/geometry_dash_game/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11a.5.5 0 0 0 .77.42l8.5-5.5a.5.5 0 0 0 0-.84l-8.5-5.5A.5.5 0 0 0 4 2.5z"/></svg>Jugar ahora</a>
+    </p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="detail-hero-img phone-hero">
+    <img src="assets/geometry-dash/flutter_02.webp" alt="Pantalla principal del juego en modo claro, con el perfil del jugador, puntos, diamantes y el botón Iniciar partida">
+    <img src="assets/geometry-dash/flutter_05.webp" alt="Partida en curso: el cubo salta sobre dos pinchos y suma un diamante">
+    <img src="assets/geometry-dash/flutter_01.webp" alt="Pantalla principal del juego en modo oscuro">
+  </div>
+</div>
+
+<div class="wrap detail-body">
+  <div>
+    <h2>El proyecto</h2>
+    <p>Una app de juego desarrollada en Flutter para una materia de la facultad, inspirada en Geometry Dash: el jugador controla un cubo que avanza solo y tiene que saltar en el momento justo para esquivar los pinchos. Cada obstáculo superado suma puntos y en el camino se juntan diamantes, la moneda del juego.</p>
+    <p>Además del juego en sí, la app incluye todo lo que rodea a un juego mobile real: perfil del jugador, récord, una economía de diamantes, publicidad, tienda y una cuenta PRO por suscripción.</p>
+
+    <h2>Qué construimos</h2>
+    <ul>
+      <li>Mecánica de runner: salto, detección de colisiones con los obstáculos y puntaje en tiempo real</li>
+      <li>Perfil del jugador con nivel de cuenta (BASIC / PRO), récord, puntos y diamantes acumulados</li>
+      <li>Revivir al chocar: por 10 diamantes se sigue la partida desde donde se chocó, o se termina y se ve el resumen</li>
+      <li>Pausa con cuenta regresiva para retomar y confirmación antes de reiniciar para no perder la partida por error</li>
+      <li>Publicidad intersticial con temporizador y acceso directo a la versión PRO</li>
+      <li>Tienda de paquetes de diamantes y suscripción PRO: sin publicidad, revivir a 5 diamantes y 50 diamantes por mes</li>
+      <li>Modo claro / oscuro y control de sonido</li>
+    </ul>
+
+    <h2>Cómo se juega</h2>
+    <p>Desde la pantalla principal se arranca con "Iniciar partida". El cubo avanza solo y hay que tocar la pantalla (o hacer clic, en la versión web) para saltar los pinchos. Si chocás, podés gastar diamantes para seguir o terminar la partida; al final se muestran los puntos, el récord y los diamantes ganados.</p>
+
+    <h2>Galería</h2>
+    <div class="gallery phone-gallery">
+      <figure>
+        <img src="assets/geometry-dash/flutter_02.webp" alt="Pantalla principal en modo claro">
+        <figcaption>Inicio · modo claro</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/geometry-dash/flutter_01.webp" alt="Pantalla principal en modo oscuro">
+        <figcaption>Inicio · modo oscuro</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/geometry-dash/flutter_05.webp" alt="Partida en curso con el cubo saltando sobre pinchos">
+        <figcaption>En juego</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/geometry-dash/flutter_03.webp" alt="Diálogo ¡Chocaste! con la opción de seguir por 10 diamantes">
+        <figcaption>Revivir con diamantes</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/geometry-dash/flutter_04.webp" alt="Cuenta regresiva ¡Preparate! antes de reanudar la partida">
+        <figcaption>Reanudar con cuenta regresiva</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/geometry-dash/flutter_06.webp" alt="Confirmación antes de reiniciar la partida">
+        <figcaption>Confirmar reinicio</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/geometry-dash/flutter_07.webp" alt="Publicidad intersticial con temporizador y botón para pasarse a PRO">
+        <figcaption>Publicidad</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/geometry-dash/flutter_08.webp" alt="Tienda con paquetes de diamantes y la cuenta PRO">
+        <figcaption>Tienda</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/geometry-dash/flutter_09.webp" alt="Detalle de la cuenta PRO con sus beneficios">
+        <figcaption>Cuenta PRO</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/geometry-dash/flutter_10.webp" alt="Pantalla de Game Over con puntos, récord y diamantes ganados">
+        <figcaption>Game over</figcaption>
+      </figure>
+    </div>
+
+   </div>
+
+  <aside class="detail-sidebar">
+    <div class="plate-card">
+      <h3>Detalle del proyecto</h3>
+      <div class="plate-row"><span>Tipo</span><span>Trabajo práctico (Facultad)</span></div>
+      <div class="plate-row"><span>Plataforma</span><span>Mobile · Web</span></div>
+      <div class="plate-row"><span>Stack</span><span>Flutter · Dart</span></div>
+      <a class="btn btn-play" href="https://lourdesibanez.github.io/geometry_dash_game/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11a.5.5 0 0 0 .77.42l8.5-5.5a.5.5 0 0 0 0-.84l-8.5-5.5A.5.5 0 0 0 4 2.5z"/></svg>Jugar ahora</a>
+      <a class="btn btn-primary" href="https://github.com/lourdesibanez/geometry_dash_game" target="_blank" rel="noopener"><svg class="icon-github" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>Ver código</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Lourdes</span>
+    <span>Hecho con HTML, CSS y JS — sin frameworks</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

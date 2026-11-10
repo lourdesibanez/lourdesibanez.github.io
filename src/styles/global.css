@@ -1,0 +1,326 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ink: #1a1f2b;
+  --color-carbon: #3b4252;
+  --color-paper: #f6f1f5;
+  --color-malva: #b48ead;
+  --color-malva-ink: #8a6584;
+  --color-blush: #e5d7e9;
+  --color-sage: #8fb08a;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-ink font-sans text-ink antialiased;
+  }
+  ::selection {
+    @apply bg-malva text-ink;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-malva);
+    outline-offset: 3px;
+  }
+}
+
+/* ---------- Panels: Figma-artboard feel ---------- */
+.dot-grid {
+  background-image: radial-gradient(rgb(26 31 43 / 0.09) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.dot-grid-dark {
+  background-image: radial-gradient(rgb(246 241 245 / 0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.corner {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* Accent word in section titles */
+.title-accent em {
+  font-style: normal;
+  color: var(--color-malva);
+}
+.on-paper .title-accent em {
+  color: var(--color-malva-ink);
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.no-js .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hero: animate on load (not on scroll) */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+.fade-up {
+  animation: fade-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(143 176 138 / 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgb(143 176 138 / 0);
+  }
+}
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* ---------- Typewriter ---------- */
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.type-caret {
+  display: inline-block;
+  width: 0.09em;
+  height: 0.82em;
+  margin-left: 0.06em;
+  background: var(--color-malva);
+  vertical-align: -0.04em;
+  animation: blink 1s steps(1) infinite;
+}
+.is-typing .type-caret {
+  animation: none;
+}
+
+/* ---------- Text scramble (section labels) ---------- */
+.scramble-char {
+  color: var(--color-malva);
+}
+
+/* ---------- Spotlight cards (glow follows the cursor) ---------- */
+.spotlight {
+  position: relative;
+  isolation: isolate;
+  --mx: 50%;
+  --my: 50%;
+}
+.spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--mx) var(--my), rgb(180 142 173 / 0.28), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.35s;
+  z-index: -1;
+  pointer-events: none;
+}
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+/* ---------- Marquee ---------- */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee {
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ---------- Credential (hanging badge) ---------- */
+.badge-rig {
+  perspective: 1200px;
+}
+.badge-swing {
+  transform-origin: 50% 0;
+  will-change: transform;
+}
+.badge-card {
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.badge-card.is-flipped {
+  transform: rotateY(180deg);
+}
+.badge-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.badge-back {
+  transform: rotateY(180deg);
+}
+.badge-shine {
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgb(255 255 255 / 0.22) 45%,
+    rgb(229 215 233 / 0.12) 52%,
+    transparent 65%
+  );
+  background-size: 250% 250%;
+  background-position: var(--shine, 100%) 50%;
+  mix-blend-mode: soft-light;
+}
+.lanyard {
+  background: repeating-linear-gradient(45deg, var(--color-malva) 0 6px, var(--color-malva-ink) 6px 12px);
+}
+.barcode {
+  background: repeating-linear-gradient(
+    90deg,
+    currentColor 0 2px,
+    transparent 2px 4px,
+    currentColor 4px 5px,
+    transparent 5px 8px,
+    currentColor 8px 11px,
+    transparent 11px 12px
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .fade-up,
+  .pulse-dot,
+  .type-caret,
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ---------- Long-form project text (Markdown) ---------- */
+.prose-project {
+  @apply text-[1.05rem] leading-relaxed text-ink/80;
+}
+.prose-project > * + * {
+  margin-top: 1.1em;
+}
+.prose-project h2 {
+  @apply mt-14 font-display text-4xl font-bold uppercase tracking-tight text-ink sm:text-5xl;
+}
+.prose-project h2:first-child {
+  margin-top: 0;
+}
+.prose-project h3 {
+  @apply mt-8 font-display text-2xl font-bold uppercase text-ink;
+}
+.prose-project strong {
+  @apply font-semibold text-ink;
+}
+.prose-project a {
+  @apply underline decoration-malva decoration-2 underline-offset-4 hover:bg-blush;
+}
+.prose-project ul,
+.prose-project ol {
+  @apply space-y-2 pl-0;
+  list-style: none;
+}
+.prose-project ul > li,
+.prose-project ol > li {
+  @apply relative pl-7;
+}
+.prose-project ul > li::before {
+  content: '';
+  @apply absolute left-1 top-[0.7em] size-2 rotate-45 bg-malva;
+}
+.prose-project ol {
+  counter-reset: item;
+}
+.prose-project ol > li::before {
+  counter-increment: item;
+  content: counter(item, decimal-leading-zero);
+  @apply absolute left-0 top-[0.2em] font-mono text-xs text-malva-ink;
+}
+.prose-project blockquote {
+  @apply rounded-2xl border border-malva/40 bg-blush/60 px-5 py-4 text-ink;
+}
+.prose-project code {
+  @apply rounded bg-ink/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-ink;
+}
+.prose-project img {
+  @apply mt-6 w-full rounded-2xl border border-ink/10 bg-white;
+}
+.prose-project table {
+  @apply w-full border-collapse overflow-hidden rounded-2xl text-sm;
+  display: block;
+  overflow-x: auto;
+}
+.prose-project th {
+  @apply border-b border-ink/20 px-3 py-2 text-left font-mono text-xs uppercase tracking-wider text-ink/60;
+}
+.prose-project td {
+  @apply border-b border-ink/10 px-3 py-2 align-top;
+}
+.prose-project .embed {
+  @apply aspect-video overflow-hidden rounded-2xl;
+}
+.prose-project .embed iframe,
+.prose-project .embed video {
+  @apply size-full;
+}
+/* Charts with captions inside case studies */
+.prose-project figure.chart {
+  @apply my-8;
+}
+.prose-project figure.chart a {
+  @apply block no-underline hover:bg-transparent;
+}
+.prose-project figure.chart img {
+  @apply mt-0 cursor-zoom-in p-3 transition-shadow hover:shadow-lg sm:p-4;
+}
+.prose-project figure.chart figcaption {
+  @apply mt-2 font-mono text-xs leading-relaxed text-ink/55;
+}
+
+/* "Business rules" cards inside the AI case study */
+.prose-project .rules {
+  @apply grid gap-3 sm:grid-cols-3;
+}
+.prose-project .rule {
+  @apply rounded-2xl border border-ink/10 bg-white p-5 text-[0.95rem];
+}
+.prose-project .rule b {
+  @apply block font-display text-2xl font-bold uppercase text-malva-ink;
+}

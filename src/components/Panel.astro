@@ -1,0 +1,27 @@
+---
+interface Props { id?: string; tone?: 'paper' | 'ink' | 'malva'; class?: string; corners?: boolean }
+const { id, tone = 'paper', class: cls = '', corners = true } = Astro.props;
+const tones = {
+  paper: 'on-paper dot-grid bg-paper text-ink',
+  ink: 'dot-grid-dark bg-ink text-paper border border-paper/12',
+  malva: 'on-paper bg-blush text-ink',
+};
+---
+<section
+  id={id}
+  class:list={[
+    'relative scroll-mt-24 overflow-hidden rounded-[1.25rem] px-5 py-16 sm:rounded-[1.75rem] sm:px-10 sm:py-24 lg:px-16',
+    tones[tone],
+    cls,
+  ]}
+>
+  {corners && (
+    <Fragment>
+      <span class="corner left-3 top-3" aria-hidden="true">+</span>
+      <span class="corner right-3 top-3" aria-hidden="true">+</span>
+      <span class="corner bottom-3 left-3" aria-hidden="true">+</span>
+      <span class="corner bottom-3 right-3" aria-hidden="true">+</span>
+    </Fragment>
+  )}
+  <slot />
+</section>

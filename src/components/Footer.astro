@@ -1,0 +1,27 @@
+---
+import Icon from './Icon.astro';
+import { contact, useTranslations, type Lang } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+---
+<footer class="dot-grid rounded-[1.25rem] bg-paper px-5 py-12 text-ink sm:rounded-[1.75rem] sm:px-10 lg:px-16">
+  <div class="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+    <div>
+      <p class="font-display text-6xl font-black uppercase leading-[0.85] tracking-tight sm:text-8xl">Lourdes <span class="text-malva-ink">Ibañez</span></p>
+      <p class="mt-4 font-mono text-xs uppercase tracking-[0.18em] text-ink/60">{t.footer.role}</p>
+      <p class="mt-6 text-lg text-ink/75">{t.footer.signoff}</p>
+    </div>
+    <div class="flex flex-wrap gap-2">
+      <a href={contact.linkedin} target="_blank" rel="noopener" class="inline-flex size-11 items-center justify-center rounded-full border border-ink/30 transition-colors hover:border-malva hover:bg-malva" aria-label="LinkedIn"><Icon name="linkedin" class="size-5" /></a>
+      <a href={contact.github} target="_blank" rel="noopener" class="inline-flex size-11 items-center justify-center rounded-full border border-ink/30 transition-colors hover:border-malva hover:bg-malva" aria-label="GitHub"><Icon name="github" class="size-5" /></a>
+      <a href={`mailto:${contact.email}`} class="inline-flex size-11 items-center justify-center rounded-full border border-ink/30 transition-colors hover:border-malva hover:bg-malva" aria-label="Email"><Icon name="mail" class="size-5" /></a>
+      <a href="#top" class="inline-flex min-h-11 items-center gap-2 rounded-full border border-ink bg-ink px-4 text-sm text-paper transition-colors hover:border-malva hover:bg-malva hover:text-ink"><Icon name="arrow-up" />{t.footer.top}</a>
+    </div>
+  </div>
+  <div class="mt-12 flex flex-col gap-2 border-t border-ink/15 pt-6 font-mono text-xs uppercase tracking-[0.14em] text-ink/60 sm:flex-row sm:justify-between">
+    <span>© {year} Lourdes Ibañez · {t.footer.rights}</span>
+    <span>{t.footer.place}</span>
+  </div>
+</footer>

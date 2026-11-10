@@ -1,0 +1,171 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Panel from '../components/Panel.astro';
+import Icon from '../components/Icon.astro';
+import { routes, useTranslations, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  entry: CollectionEntry<'projects'>;
+  next: { slug: string; title: string };
+}
+const { lang, entry, next } = Astro.props;
+const t = useTranslations(lang);
+const d = entry.data;
+const { Content } = await render(entry);
+const home = routes.home(lang);
+
+const heroFit = {
+  logo: 'bg-white p-10 sm:p-16 [&_img]:max-h-56 [&_img]:w-auto [&_img]:object-contain',
+  phone: 'bg-blush px-6 pt-10 sm:px-12 [&_img]:max-h-[34rem] [&_img]:w-auto [&_img]:rounded-t-3xl [&_img]:object-contain',
+  cover: 'bg-ink [&_img]:w-full [&_img]:object-cover',
+}[d.hero.fit];
+const linkStyle: Record<string, string> = {
+  play: 'border-malva bg-malva text-ink hover:border-ink hover:bg-ink hover:text-paper',
+  demo: 'border-malva bg-malva text-ink hover:border-ink hover:bg-ink hover:text-paper',
+};
+const phoneGallery = d.gallery?.variant === 'phone';
+---
+<Base lang={lang} title={d.title} description={d.summary}>
+  <Panel class="pt-28 sm:pt-32">
+    <a href={`${home}#proyectos`} class="reveal inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-ink/60 transition-colors hover:text-ink">
+      <Icon name="arrow-left" />{t.project.back}
+    </a>
+    <div class="mt-10 grid gap-10 lg:grid-cols-12 lg:items-end">
+      <div class="lg:col-span-8">
+        <p class="reveal font-mono text-xs uppercase tracking-[0.18em] text-ink/60">{d.kicker}</p>
+        <h1 class="reveal mt-5 font-display text-5xl font-black uppercase leading-[0.9] tracking-tight text-balance sm:text-7xl lg:text-8xl">{d.title}</h1>
+        <p class="reveal mt-8 max-w-2xl text-xl leading-snug text-ink/75 sm:text-2xl">{d.summary}</p>
+      </div>
+      {d.links.length > 0 && (
+        <div class="reveal flex flex-wrap gap-2 lg:col-span-4 lg:justify-end">
+          {d.links.map((l) => (
+            <a
+              href={l.href}
+              target="_blank"
+              rel="noopener"
+              class:list={[
+                'inline-flex min-h-11 items-center gap-2 rounded-full border px-5 text-sm font-medium transition-colors',
+                linkStyle[l.kind] ?? 'border-ink bg-transparent hover:border-malva hover:bg-malva',
+              ]}
+            ><Icon name={l.kind === 'external' ? 'external' : l.kind} />{l.label}</a>
+          ))}
+        </div>
+      )}
+    </div>
+    <ul class="reveal mt-8 flex flex-wrap gap-1.5">
+      {d.tags.map((tag) => <li class="rounded-md border border-ink/20 bg-paper px-2.5 py-1 font-mono text-[0.7rem] uppercase tracking-wider">{tag}</li>)}
+    </ul>
+
+    {d.stats.length > 0 && (
+      <dl class:list={['reveal mt-10 grid gap-3', d.stats.length >= 3 ? 'sm:grid-cols-3' : 'sm:grid-cols-2']}>
+        {d.stats.map((s, i) => (
+          <div class:list={['rounded-2xl p-5 sm:p-6', i === 0 ? 'bg-ink text-paper' : 'border border-ink/15 bg-paper']}>
+            <dd class:list={['font-display text-5xl font-black uppercase leading-none sm:text-6xl', i === 0 && 'text-malva']}>{s.value}</dd>
+            <dt class:list={['mt-2 font-mono text-xs uppercase tracking-[0.14em]', i === 0 ? 'text-paper/60' : 'text-ink/60']}>{s.label}</dt>
+          </div>
+        ))}
+      </dl>
+    )}
+
+    <div class:list={['reveal mt-12 flex items-end justify-center gap-4 overflow-hidden rounded-3xl border border-ink/10', heroFit]}>
+      {d.hero.images.map((img, i) => (
+        <img src={img.src} alt={img.alt} class:list={[d.hero.fit === 'phone' && i > 0 && 'hidden sm:block']} />
+      ))}
+    </div>
+  </Panel>
+
+  <Panel>
+    <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+      <article class="prose-project reveal min-w-0 lg:col-span-8">
+        <Content />
+      </article>
+      <aside class="lg:col-span-4">
+        <div class="reveal sticky top-24 rounded-3xl bg-ink p-6 text-paper sm:p-8">
+          <h2 class="font-mono text-xs uppercase tracking-[0.18em] text-paper/60">{t.project.details}</h2>
+          <dl class="mt-5 divide-y divide-paper/15">
+            {d.facts.map((f) => (
+              <div class="flex justify-between gap-6 py-3 text-sm">
+                <dt class="text-paper/60">{f.label}</dt>
+                <dd class="text-right font-medium">{f.value}</dd>
+              </div>
+            ))}
+          </dl>
+          {d.links.length > 0 && (
+            <div class="mt-6 flex flex-col gap-2">
+              {d.links.map((l) => (
+                <a href={l.href} target="_blank" rel="noopener" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-paper/30 px-5 text-sm transition-colors hover:border-malva hover:bg-malva hover:text-ink">
+                  <Icon name={l.kind === 'external' ? 'external' : l.kind} />{l.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      </aside>
+    </div>
+  </Panel>
+
+  {d.gallery && (
+    <Panel tone="ink">
+      <div class="flex items-center gap-4 font-mono text-xs uppercase tracking-[0.18em] text-paper/70">
+        <span>{t.project.gallery}</span>
+        <span class="h-px flex-1 bg-paper/20"></span>
+        <span>{d.gallery.items.length}</span>
+      </div>
+      <div class:list={['mt-10 grid gap-4', phoneGallery ? 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-5' : 'sm:grid-cols-2 lg:grid-cols-3']} data-gallery>
+        {d.gallery.items.map((img) => (
+          <figure class="reveal">
+            <button type="button" class="group block w-full overflow-hidden rounded-2xl bg-paper" data-lightbox-src={img.src} data-lightbox-alt={img.alt}>
+              <img
+                src={img.src}
+                alt={img.alt}
+                loading="lazy"
+                decoding="async"
+                class:list={['w-full transition-transform duration-500 group-hover:scale-[1.03]', phoneGallery ? 'aspect-[9/19] object-cover object-top' : 'aspect-[4/3] object-cover object-top']}
+              />
+            </button>
+            {img.caption && <figcaption class="mt-3 text-sm text-paper/70">{img.caption}</figcaption>}
+          </figure>
+        ))}
+      </div>
+    </Panel>
+  )}
+
+  <a href={routes.project(lang, next.slug)} class="group block rounded-[1.25rem] bg-malva px-5 py-12 text-ink transition-colors hover:bg-blush sm:rounded-[1.75rem] sm:px-10 sm:py-16 lg:px-16">
+    <span class="font-mono text-xs uppercase tracking-[0.18em] text-ink/60">{t.project.next}</span>
+    <span class="mt-4 flex items-center justify-between gap-6">
+      <span class="font-display text-4xl font-black uppercase leading-none tracking-tight sm:text-6xl">{next.title}</span>
+      <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-ink text-paper transition-transform duration-300 group-hover:-rotate-12 sm:size-20">
+        <Icon name="arrow" class="size-6 sm:size-8" />
+      </span>
+    </span>
+  </a>
+
+  <dialog class="m-auto max-h-none max-w-none bg-transparent p-0 backdrop:bg-ink/90 backdrop:backdrop-blur-sm" data-lightbox>
+    <div class="relative flex h-dvh w-screen items-center justify-center p-4 sm:p-10" data-lightbox-backdrop>
+      <img class="max-h-full max-w-full rounded-2xl object-contain" alt="" data-lightbox-img />
+      <button type="button" class="absolute right-4 top-4 inline-flex size-12 items-center justify-center rounded-full bg-paper text-ink transition-colors hover:bg-malva" data-lightbox-close>
+        <span class="sr-only">{t.project.close}</span>
+        <Icon name="close" class="size-5" />
+      </button>
+    </div>
+  </dialog>
+</Base>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('[data-lightbox]');
+  const img = dialog?.querySelector<HTMLImageElement>('[data-lightbox-img]');
+  document.querySelectorAll<HTMLButtonElement>('[data-lightbox-src]').forEach((btn) =>
+    btn.addEventListener('click', () => {
+      if (!dialog || !img) return;
+      img.src = btn.dataset.lightboxSrc!;
+      img.alt = btn.dataset.lightboxAlt ?? '';
+      dialog.showModal();
+    })
+  );
+  dialog?.querySelector('[data-lightbox-close]')?.addEventListener('click', () => dialog.close());
+  dialog?.querySelector('[data-lightbox-backdrop]')?.addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) dialog.close();
+  });
+</script>

@@ -1,0 +1,28 @@
+---
+interface Props {
+  href: string;
+  variant?: 'solid' | 'outline' | 'malva';
+  external?: boolean;
+  class?: string;
+  [key: string]: unknown;
+}
+const { href, variant = 'solid', external = false, class: cls = '', ...rest } = Astro.props;
+const variants = {
+  solid: 'border-ink bg-ink text-paper hover:border-malva hover:bg-malva hover:text-ink',
+  outline: 'border-current bg-transparent hover:border-malva hover:bg-malva hover:text-ink',
+  malva: 'border-malva bg-malva text-ink hover:border-paper hover:bg-paper',
+};
+---
+<a
+  href={href}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener' : undefined}
+  class:list={[
+    'group/btn inline-flex min-h-11 items-center justify-center gap-2 rounded-full border px-5 py-2.5 text-sm font-medium tracking-tight transition-[background-color,color,border-color,transform] duration-300 ease-out active:scale-[0.98]',
+    variants[variant],
+    cls,
+  ]}
+  {...rest}
+>
+  <slot />
+</a>

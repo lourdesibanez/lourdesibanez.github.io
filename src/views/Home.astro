@@ -1,0 +1,327 @@
+---
+import Base from '../layouts/Base.astro';
+import Panel from '../components/Panel.astro';
+import SectionHead from '../components/SectionHead.astro';
+import Button from '../components/Button.astro';
+import Icon from '../components/Icon.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Credential from '../components/Credential.astro';
+import { contact, routes, useTranslations, type Lang } from '../i18n/ui';
+import { getProjects } from '../lib/projects';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const projects = await getProjects(lang);
+const filterKeys = Object.keys(t.projects.filters) as (keyof typeof t.projects.filters)[];
+const path = lang === 'es'
+  ? { about: 'sobre-mi', exp: 'experiencia', skills: 'tecnologias', projects: 'proyectos', edu: 'formacion', contact: 'contacto' }
+  : { about: 'about', exp: 'experience', skills: 'tech', projects: 'projects', edu: 'education', contact: 'contact' };
+const marquee = ['PHP', 'Laravel', 'MySQL', 'REST APIs', 'Python', 'Scikit-Learn', 'Pandas', 'Java', 'Vue', 'Flutter', 'Figma', 'UML', 'Swagger', 'Git'];
+
+// Put your photo in public/assets/ and set its path here, e.g. '/assets/lourdes.webp'
+const photo: string | undefined = undefined;
+
+const iconBtn = 'inline-flex size-11 items-center justify-center rounded-full border border-ink/30 transition-colors duration-300 hover:border-malva hover:bg-malva';
+const pillLink = 'inline-flex min-h-11 items-center gap-2 rounded-full border border-paper/30 px-5 text-sm transition-colors hover:border-malva hover:bg-malva hover:text-ink';
+const field = 'mt-2 w-full rounded-xl border border-ink/20 bg-white px-4 py-3 outline-none transition-colors focus:border-malva-ink';
+---
+<Base lang={lang}>
+  <!-- HERO -->
+  <Panel id="inicio" class="pt-28 sm:pt-32 lg:pb-28">
+    <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-8">
+      <div class="min-w-0 lg:col-span-7">
+        <div style="--d:0ms" class="fade-up flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-xs uppercase tracking-[0.18em] text-ink/65">
+          <span><span class="text-malva-ink">&gt;</span> {t.hero.meta}</span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-ink/20 bg-paper px-3 py-1">
+            <span class="pulse-dot size-1.5 rounded-full bg-sage"></span>{t.hero.badge}
+          </span>
+        </div>
+        <p style="--d:90ms" class="fade-up mt-8 text-xl text-ink/80 sm:text-2xl">{t.hero.hello} <span class="font-semibold text-ink">Ibañez</span></p>
+
+        <h1 style="--d:180ms" class="fade-up mt-3 font-display text-[3.9rem] font-black uppercase leading-[0.86] tracking-tight sm:text-8xl lg:text-[7.5rem] xl:text-[8.5rem]">
+          <span class="sr-only">{t.hero.roles.join(' · ')}</span>
+          <span class="block min-h-[1.72em]" aria-hidden="true" data-typewriter={JSON.stringify(t.hero.roles)}>
+            <span data-type-text>{t.hero.roles[0]}</span><span class="type-caret"></span>
+          </span>
+        </h1>
+
+        <p style="--d:270ms" class="fade-up mt-6 max-w-xl font-display text-2xl font-semibold uppercase tracking-wide text-malva-ink sm:text-3xl">{t.hero.tagline}</p>
+        <p style="--d:360ms" class="fade-up mt-4 max-w-xl text-base leading-relaxed text-ink/70">{t.hero.lead}</p>
+        <div style="--d:450ms" class="fade-up mt-8 flex flex-wrap items-center gap-3">
+          <Button href="#proyectos">{t.hero.ctaProjects}<Icon name="arrow" class="size-4 transition-transform duration-300 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" /></Button>
+          <Button href="#contacto" variant="outline">{t.hero.ctaContact}</Button>
+          <span class="mx-1 hidden h-6 w-px bg-ink/20 sm:block"></span>
+          <a href={contact.github} target="_blank" rel="noopener" aria-label="GitHub" class={iconBtn}><Icon name="github" class="size-5" /></a>
+          <a href={contact.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn" class={iconBtn}><Icon name="linkedin" class="size-5" /></a>
+        </div>
+      </div>
+
+      <div style="--d:500ms" class="fade-up min-w-0 pb-12 lg:col-span-5 lg:pb-0">
+        <Credential lang={lang} photo={photo} />
+      </div>
+    </div>
+  </Panel>
+
+  <!-- MARQUEE -->
+  <div class="marquee overflow-hidden rounded-[1.25rem] bg-malva py-4 text-ink sm:rounded-[1.75rem]" aria-hidden="true">
+    <div class="marquee-track">
+      {[0, 1].map(() => (
+        <div class="flex shrink-0 items-center">
+          {marquee.map((m) => (
+            <span class="flex items-center gap-6 pr-6 font-display text-3xl font-extrabold uppercase tracking-wide sm:text-4xl">
+              {m}<span class="text-xl text-ink/45">✦</span>
+            </span>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <Panel id="sobre-mi" tone="ink">
+    <SectionHead n="01" path={path.about} label={t.about.label} title={t.about.title} />
+    <div class="mt-14 grid gap-12 lg:mt-20 lg:grid-cols-12 lg:gap-10">
+      <div class="reveal lg:col-span-4">
+        <div class="rounded-2xl border border-paper/15 bg-paper/[0.04] p-6">
+          <div class="flex items-center justify-between font-mono text-xs uppercase tracking-[0.18em] text-paper/60">
+            <span>{t.about.specTitle}</span>
+            <span class="flex gap-1" aria-hidden="true"><span class="size-2 rounded-full bg-malva"></span><span class="size-2 rounded-full bg-paper/25"></span></span>
+          </div>
+          <dl class="mt-5 divide-y divide-dashed divide-paper/15">
+            {t.about.spec.map(([k, v]) => (
+              <div class="flex items-baseline justify-between gap-4 py-3">
+                <dt class="font-mono text-xs uppercase tracking-wider text-paper/55">{k}</dt>
+                <dd class="text-right text-sm font-medium text-paper">{v}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+      <div class="lg:col-span-8">
+        <div class="reveal space-y-5 text-lg leading-relaxed text-paper/70">
+          {t.about.body.map((p, i) => <p class:list={[i === 0 && 'text-2xl leading-snug text-paper sm:text-3xl']}>{p}</p>)}
+        </div>
+        <div class="mt-12 grid gap-3 sm:grid-cols-2">
+          {t.about.cards.map((c, i) => (
+            <div class="spotlight reveal flex min-h-40 flex-col justify-between overflow-hidden rounded-2xl border border-paper/15 bg-paper/[0.03] p-5" data-spotlight>
+              <span class="font-mono text-xs text-malva">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h3 class="font-display text-3xl font-bold uppercase">{c.title}</h3>
+                <p class="mt-1 text-sm leading-relaxed text-paper/65">{c.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </Panel>
+
+  <!-- EXPERIENCE -->
+  <Panel id="experiencia">
+    <SectionHead n="02" path={path.exp} label={t.experience.label} title={t.experience.title} />
+    <div class="relative mt-14 lg:mt-20">
+      <span class="absolute bottom-0 left-[0.4rem] top-2 w-px border-l border-dashed border-ink/30 lg:left-[calc(33.333%-0.6rem)]" aria-hidden="true"></span>
+      <ol class="space-y-16">
+        {t.experience.items.map((job, i) => (
+          <li class="reveal relative grid gap-6 pl-8 lg:grid-cols-12 lg:gap-10 lg:pl-0">
+            <span class:list={['absolute left-0 top-2 size-[0.85rem] rotate-45 border border-ink lg:left-[calc(33.333%-1.05rem)]', i === 0 ? 'bg-malva' : 'bg-paper']} aria-hidden="true"></span>
+            <div class="lg:col-span-4 lg:pr-10">
+              <p class="font-mono text-xs uppercase tracking-[0.18em] text-malva-ink">{job.period}</p>
+              <h3 class="mt-3 font-display text-5xl font-extrabold uppercase leading-none tracking-tight">{job.company}</h3>
+              <p class="mt-3 inline-block rounded-md bg-blush px-3 py-1 text-sm font-medium">{job.role}</p>
+            </div>
+            <div class="lg:col-span-8 lg:pl-6">
+              <ol class="space-y-3">
+                {job.bullets.map((b, j) => (
+                  <li class="grid grid-cols-[2.25rem_1fr] gap-2 text-base leading-relaxed text-ink/80">
+                    <span class="pt-1 font-mono text-xs text-malva-ink">{String(j + 1).padStart(2, '0')}</span>{b}
+                  </li>
+                ))}
+              </ol>
+              <ul class="mt-6 flex flex-wrap gap-1.5">
+                {job.tags.map((tag) => <li class="rounded-md border border-ink/20 bg-paper px-2.5 py-1 font-mono text-[0.7rem] uppercase tracking-wider">{tag}</li>)}
+              </ul>
+              <a href={routes.project(lang, job.project)} class="mt-6 inline-flex items-center gap-1.5 border-b border-ink pb-0.5 text-sm font-medium transition-colors hover:border-malva hover:text-malva-ink">{t.experience.seeProject}<Icon name="arrow" /></a>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </Panel>
+
+  <!-- SKILLS -->
+  <Panel id="skills" tone="ink">
+    <SectionHead n="03" path={path.skills} label={t.skills.label} title={t.skills.title} />
+    <div class="mt-12 grid gap-3 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
+      {t.skills.groups.map((g, i) => {
+        const featured = 'badge' in g;
+        return (
+          <div
+            class:list={['spotlight reveal flex flex-col overflow-hidden rounded-2xl p-6 sm:p-8', featured ? 'bg-malva text-ink' : 'border border-paper/15 bg-paper/[0.03]']}
+            data-spotlight
+          >
+            <div class="flex items-start justify-between gap-4">
+              <span class:list={['font-mono text-xs', featured ? 'text-ink/60' : 'text-malva']}>{`0${i + 1}`}</span>
+              {featured && (
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-1 font-mono text-[0.65rem] uppercase tracking-wider text-paper">
+                  <span class="pulse-dot size-1.5 rounded-full bg-sage"></span>{(g as { badge: string }).badge}
+                </span>
+              )}
+            </div>
+            <h3 class="mt-10 font-display text-4xl font-extrabold uppercase leading-none">{g.title}</h3>
+            <ul class="mt-5 space-y-2 text-sm">
+              {g.items.map((it) => (
+                <li class="flex items-center gap-3"><span class:list={['size-1.5 shrink-0 rotate-45', featured ? 'bg-ink' : 'bg-malva']}></span>{it}</li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
+    </div>
+  </Panel>
+
+  <!-- PROJECTS -->
+  <Panel id="proyectos">
+    <SectionHead n="04" path={path.projects} label={t.projects.label} title={t.projects.title} intro={t.projects.intro} />
+    <div class="reveal mt-10 flex flex-wrap gap-2" role="group" aria-label={t.projects.label}>
+      {filterKeys.map((k, i) => (
+        <button
+          type="button"
+          data-filter={k}
+          aria-pressed={i === 0 ? 'true' : 'false'}
+          class="rounded-full border border-ink/25 bg-paper px-4 py-2 text-sm transition-colors hover:border-ink aria-pressed:border-ink aria-pressed:bg-ink aria-pressed:text-paper"
+        >{t.projects.filters[k]}</button>
+      ))}
+    </div>
+    <div class="mt-10 grid gap-x-5 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+      {projects.map(({ slug, entry }, i) => (
+        <ProjectCard project={entry} slug={slug} n={i + 1} lang={lang} />
+      ))}
+    </div>
+    <p class="mt-10 hidden text-xl text-ink/60" data-filter-empty>{t.projects.empty}</p>
+  </Panel>
+
+  <!-- EDUCATION -->
+  <Panel id="formacion" tone="malva">
+    <SectionHead n="05" path={path.edu} label={t.education.label} title={t.education.title} />
+    <div class="mt-12 grid gap-6 lg:mt-16">
+      {t.education.items.map((ed) => (
+        <div class="reveal grid gap-8 rounded-2xl bg-paper p-6 sm:p-8 md:grid-cols-[auto_1fr] md:items-center">
+          <div class="flex items-center gap-5">
+            <img src="/assets/logo_unlpam.png" alt="Universidad Nacional de La Pampa" class="h-24 w-auto object-contain sm:h-28" loading="lazy" />
+            <span class="h-16 w-px bg-ink/15" aria-hidden="true"></span>
+            <img src="/assets/logo-facultad.webp" alt="Facultad de Ingeniería, UNLPam" class="h-16 w-auto object-contain sm:h-20" loading="lazy" />
+          </div>
+          <div>
+            <p class="font-mono text-xs uppercase tracking-[0.18em] text-malva-ink">{ed.period} · {ed.city}</p>
+            <h3 class="mt-2 font-display text-4xl font-extrabold uppercase leading-none sm:text-5xl">{ed.place}</h3>
+            <p class="mt-3 max-w-2xl text-ink/75">{ed.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Panel>
+
+  <!-- CONTACT -->
+  <Panel id="contacto" tone="ink">
+    <SectionHead n="06" path={path.contact} label={t.contact.label} title={t.contact.title} intro={t.contact.body} />
+    <div class="mt-12 grid gap-10 lg:mt-16 lg:grid-cols-12">
+      <div class="reveal min-w-0 lg:col-span-6">
+        <a href={`mailto:${contact.email}`} class="group inline-flex max-w-full items-center gap-3 font-display text-[1.9rem] font-bold decoration-malva decoration-2 underline-offset-8 hover:underline sm:text-5xl">
+          <span class="min-w-0 break-words">{contact.email}</span>
+          <Icon name="arrow" class="size-7 shrink-0 text-malva transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 sm:size-9" />
+        </a>
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a href={contact.linkedin} target="_blank" rel="noopener" class={pillLink}><Icon name="linkedin" />LinkedIn</a>
+          <a href={contact.github} target="_blank" rel="noopener" class={pillLink}><Icon name="github" />GitHub</a>
+          <a href={`mailto:${contact.email}`} class={pillLink}><Icon name="mail" />Email</a>
+        </div>
+      </div>
+      <form class="reveal rounded-2xl bg-paper p-6 text-ink sm:p-8 lg:col-span-6" data-contact-form data-email={contact.email}>
+        <h3 class="font-display text-3xl font-extrabold uppercase">{t.contact.formTitle}</h3>
+        <div class="mt-6 grid gap-4 sm:grid-cols-2">
+          <label class="block text-sm">
+            <span class="font-mono text-xs uppercase tracking-[0.14em] text-ink/60">{t.contact.name}</span>
+            <input name="name" required autocomplete="name" class={field} />
+          </label>
+          <label class="block text-sm">
+            <span class="font-mono text-xs uppercase tracking-[0.14em] text-ink/60">{t.contact.emailField}</span>
+            <input name="email" type="email" required autocomplete="email" class={field} />
+          </label>
+        </div>
+        <label class="mt-4 block text-sm">
+          <span class="font-mono text-xs uppercase tracking-[0.14em] text-ink/60">{t.contact.message}</span>
+          <textarea name="message" required rows="5" class:list={[field, 'resize-y']}></textarea>
+        </label>
+        <div class="mt-6 flex flex-wrap items-center gap-4">
+          <button type="submit" class="inline-flex min-h-11 items-center gap-2 rounded-full border border-ink bg-ink px-6 text-sm font-medium text-paper transition-colors hover:border-malva hover:bg-malva hover:text-ink">{t.contact.send}<Icon name="arrow" /></button>
+          <p class="text-xs text-ink/55">{t.contact.formNote}</p>
+        </div>
+      </form>
+    </div>
+  </Panel>
+</Base>
+
+<script>
+  // Typewriter for the hero title: types each role, pauses, deletes, moves to the next
+  const tw = document.querySelector<HTMLElement>('[data-typewriter]');
+  const out = tw?.querySelector<HTMLElement>('[data-type-text]');
+  if (tw && out && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const words: string[] = JSON.parse(tw.dataset.typewriter!);
+    let w = 0;
+    let i = 0;
+    let deleting = false;
+    out.textContent = '';
+    const tick = () => {
+      const word = words[w];
+      tw.classList.add('is-typing');
+      if (!deleting) {
+        out.textContent = word.slice(0, ++i);
+        if (i === word.length) {
+          deleting = true;
+          tw.classList.remove('is-typing');
+          return setTimeout(tick, 2400);
+        }
+        return setTimeout(tick, 75 + Math.random() * 60);
+      }
+      out.textContent = word.slice(0, --i);
+      if (i === 0) {
+        deleting = false;
+        w = (w + 1) % words.length;
+        tw.classList.remove('is-typing');
+        return setTimeout(tick, 350);
+      }
+      setTimeout(tick, 35);
+    };
+    setTimeout(tick, 700);
+  }
+
+  // Project filters
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const cards = document.querySelectorAll<HTMLElement>('[data-project]');
+  const empty = document.querySelector<HTMLElement>('[data-filter-empty]');
+  buttons.forEach((btn) =>
+    btn.addEventListener('click', () => {
+      const f = btn.dataset.filter!;
+      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+      let visible = 0;
+      cards.forEach((c) => {
+        const show = f === 'todos' || (c.dataset.categories ?? '').split(' ').includes(f);
+        c.hidden = !show;
+        if (show) visible++;
+      });
+      empty?.classList.toggle('hidden', visible > 0);
+    })
+  );
+
+  // Contact form: static site with no backend, so it opens the visitor's mail app with the message filled in
+  const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const d = new FormData(form);
+    const subject = `Portfolio · ${d.get('name')}`;
+    const body = `${d.get('message')}\n\n— ${d.get('name')} (${d.get('email')})`;
+    window.location.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>

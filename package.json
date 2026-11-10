@@ -1,21 +1,20 @@
 {
   "name": "lourdesibanez.github.io",
-  "version": "1.0.0",
-  "description": "",
-  "main": "board.js",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lourdesibanez/lourdesibanez.github.io.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/lourdesibanez/lourdesibanez.github.io/issues"
-  },
-  "homepage": "https://github.com/lourdesibanez/lourdesibanez.github.io#readme"
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "astro": "^5.18.2",
+    "tailwindcss": "^4.3.5"
+  }
 }

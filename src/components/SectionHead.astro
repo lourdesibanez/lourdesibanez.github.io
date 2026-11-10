@@ -1,0 +1,17 @@
+---
+interface Props { n: string; label: string; path: string; title: string; intro?: string }
+const { n, label, path, title, intro } = Astro.props;
+---
+<header class="reveal">
+  <div class="flex items-center gap-3 font-mono text-xs tracking-[0.08em]">
+    <span class="rounded-md border border-current/25 px-2 py-1 opacity-70">{n}</span>
+    <span class="opacity-70"><span class="text-malva">~/lourdes/</span><span data-scramble>{path}</span></span>
+    <span class="h-px flex-1 bg-current opacity-20"></span>
+    <span class="hidden uppercase tracking-[0.18em] opacity-50 sm:inline">{label}</span>
+  </div>
+  <h2
+    class="title-accent mt-6 max-w-5xl font-display text-[2.9rem] font-extrabold uppercase leading-[0.92] tracking-tight text-balance sm:text-7xl lg:text-8xl"
+    set:html={title}
+  />
+  {intro && <p class="mt-6 max-w-xl text-base leading-relaxed opacity-70">{intro}</p>}
+</header>

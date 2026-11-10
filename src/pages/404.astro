@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import Panel from '../components/Panel.astro';
+---
+<Base lang="es" title="404">
+  <Panel class="pt-32">
+    <p class="font-mono text-xs uppercase tracking-[0.18em] text-ink/60">404 · Not found</p>
+    <h1 class="mt-6 font-display text-6xl font-black uppercase leading-none tracking-tight sm:text-8xl">Esta página <span class="text-malva-ink">no existe</span>.</h1>
+    <div class="mt-10 flex flex-wrap gap-3">
+      <a href="/" class="inline-flex min-h-11 items-center rounded-full border border-ink bg-ink px-5 text-sm text-paper hover:border-malva hover:bg-malva hover:text-ink">Volver al inicio</a>
+      <a href="/en/" class="inline-flex min-h-11 items-center rounded-full border border-ink px-5 text-sm hover:border-malva hover:bg-malva">Go to home (English)</a>
+    </div>
+  </Panel>
+</Base>

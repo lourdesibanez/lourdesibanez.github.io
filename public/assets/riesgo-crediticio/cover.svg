@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" font-family="'IBM Plex Mono', Consolas, monospace">
+  <defs>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#f6f1f5" fill-opacity="0.08"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="#1a1f2b"/>
+  <rect width="1600" height="1000" fill="url(#dots)"/>
+
+  <!-- edges -->
+  <g fill="none" stroke="#b48ead" stroke-width="3" stroke-opacity="0.75">
+    <path d="M800 250 C800 330 470 330 470 410"/>
+    <path d="M800 250 C800 330 1130 330 1130 410"/>
+    <path d="M1130 500 C1130 580 930 580 930 660"/>
+    <path d="M1130 500 C1130 580 1330 580 1330 660"/>
+  </g>
+  <g font-size="22" fill="#e5d7e9" fill-opacity="0.7">
+    <text x="560" y="315">True</text>
+    <text x="985" y="315">False</text>
+    <text x="960" y="595">True</text>
+    <text x="1250" y="595">False</text>
+  </g>
+
+  <!-- root -->
+  <rect x="560" y="160" width="480" height="90" rx="18" fill="#f6f1f5"/>
+  <text x="800" y="215" text-anchor="middle" font-size="28" font-weight="600" fill="#1a1f2b">historial == "moroso"</text>
+
+  <!-- leaf: reject -->
+  <rect x="330" y="410" width="280" height="90" rx="18" fill="none" stroke="#b48ead" stroke-width="2"/>
+  <text x="470" y="465" text-anchor="middle" font-size="30" font-weight="600" fill="#e5d7e9">✕ Rechazado</text>
+
+  <!-- split -->
+  <rect x="850" y="410" width="560" height="90" rx="18" fill="#f6f1f5"/>
+  <text x="1130" y="465" text-anchor="middle" font-size="26" font-weight="600" fill="#1a1f2b">relacion_cuota_ingreso &lt;= 0.30</text>
+
+  <!-- leaves -->
+  <rect x="790" y="660" width="280" height="90" rx="18" fill="#8fb08a"/>
+  <text x="930" y="715" text-anchor="middle" font-size="30" font-weight="600" fill="#1a1f2b">✓ Aprobado</text>
+  <rect x="1190" y="660" width="280" height="90" rx="18" fill="none" stroke="#b48ead" stroke-width="2"/>
+  <text x="1330" y="715" text-anchor="middle" font-size="30" font-weight="600" fill="#e5d7e9">✕ Rechazado</text>
+
+  <!-- metric -->
+  <text x="120" y="760" font-family="'Big Shoulders Display', 'Arial Narrow', sans-serif" font-size="150" font-weight="900" fill="#b48ead">84.82%</text>
+  <text x="124" y="815" font-size="26" letter-spacing="4" fill="#f6f1f5" fill-opacity="0.6">PRECISION · 5-FOLD CV</text>
+
+  <text x="120" y="110" font-size="24" letter-spacing="4" fill="#f6f1f5" fill-opacity="0.5">DecisionTreeClassifier()</text>
+  <text x="1480" y="920" text-anchor="end" font-size="20" letter-spacing="3" fill="#f6f1f5" fill-opacity="0.35">n = 962</text>
+</svg>
